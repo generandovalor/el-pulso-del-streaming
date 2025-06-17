@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Escenarios - Generando Valor</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (Íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f0f1e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.7)',
+                        'brand-primary': '#00aaff',
+                        'brand-secondary': '#ff00c1',
+                        'brand-reseller': '#00ff9d',
+                        'brand-profit': '#2ecc71',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Adicionales -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f1e;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 170, 255, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(255, 0, 193, 0.2), transparent 40%);
+            background-attachment: fixed;
+        }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .summary-arrow::after {
+            content: '\f078';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            float: right;
+            transition: transform 0.2s;
+        }
+        details[open] .summary-arrow::after { transform: rotate(180deg); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e1e32; }
+        ::-webkit-scrollbar-thumb { background: #00aaff; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff00c1; }
+        .prize-card.selected {
+            border-color: #ff00c1;
+            box-shadow: 0 0 15px rgba(255, 0, 193, 0.5);
+            transform: scale(1.03);
+        }
+        #loader {
+            transition: opacity 0.5s;
+        }
+        .loader-spinner {
+            border-top-color: #00aaff;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        /* Estilos para los radio buttons personalizados */
+        .radio-label {
+            border: 2px solid transparent;
+            transition: all 0.2s ease-in-out;
+        }
+        .radio-label:has(input:checked) {
+            border-color: #00aaff;
+            background-color: rgba(0, 170, 255, 0.1);
+        }
+        #update-content-btn.loading .fa-sync {
+            animation: spin 1s linear infinite;
+        }
+        /* Estilo para servicios no disponibles */
+        .service-unavailable {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background-color: rgba(100, 100, 100, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <!-- Pantalla de Carga -->
+    <div id="loader" class="fixed inset-0 bg-brand-dark z-50 flex flex-col items-center justify-center p-4">
+        <div class="loader-spinner w-16 h-16 border-4 border-gray-600 rounded-full"></div>
+        <p id="loader-text" class="mt-4 text-lg text-white text-center">Contactando el puente de datos...</p>
+    </div>
+
+    <!-- MODAL (Oculto por defecto) -->
+    <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-brand-dark border border-brand-primary rounded-lg p-6 w-11/12 md:w-1/2 relative">
+            <button id="close-modal-btn" class="absolute top-3 right-4 text-2xl text-white">&times;</button>
+            <h3 id="modal-title" class="text-2xl font-bold text-brand-primary mb-4"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Simulador de Escenarios</h1>
+            <p class="text-brand-primary text-lg">Exclusivo para Vendedores de Generando Valor</p>
+        </header>
+
+        <div class="flex justify-center gap-4 mb-8">
+            <button id="clear-selection-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                <i class="fa-solid fa-trash mr-2"></i>Limpiar Selección
+            </button>
+            <button id="update-content-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                <i class="fa-solid fa-sync mr-2"></i>Actualizar Contenido
+            </button>
+        </div>
+
+        <div id="services-accordion" class="space-y-4"></div>
+
+        <section id="summary" class="mt-12 bg-brand-glass backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 hidden"></section>
+    </main>
+    
+    <a href="#summary" id="cart-button" class="fixed bottom-6 right-6 bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-brand-secondary transition-all duration-300 scale-0">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">0</span>
+    </a>
+
+    <script>
+        // --- CONFIGURACIÓN ---
+        const API_URL = "https://script.google.com/macros/s/AKfycbx8kpOhnpjlW3fhJytG38rbRF_aLhs97e56ZYn2VX9Nc7qUot8ns0VP3YE0pwAdQptXwQ/exec";
+
+        // --- ESTADO DE LA APLICACIÓN ---
+        let services = [];
+        let prizes = [];
+        let discountRules = [];
+        let cart = {}; 
+        let selectedPrizeId = null;
+
+        // --- ELEMENTOS DEL DOM ---
+        const servicesAccordion = document.getElementById('services-accordion');
+        const summarySection = document.getElementById('summary');
+        const cartButton = document.getElementById('cart-button');
+        const cartCount = document.getElementById('cart-count');
+        const loader = document.getElementById('loader');
+        const loaderText = document.getElementById('loader-text');
+        const updateBtn = document.getElementById('update-content-btn');
+
+        // --- FUNCIONES DE LÓGICA Y CÁLCULO ---
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(value);
+        }
+        
+        function cleanNumber(value) {
+            if(typeof value === 'number') return value;
+            if (typeof value !== 'string') return 0;
+            return Number(value.replace(/[^0-9]/g, ''));
+        }
+
+        async function loadDataFromApi() {
+            if (!API_URL || API_URL.includes("PEGA_AQUÍ")) {
+                 loaderText.textContent = `Error: Falta la URL de la API de Google Apps Script.`;
+                 loaderText.classList.add('text-red-500');
+                 return false;
+            }
+            
+            updateBtn.classList.add('loading');
+            loader.style.display = 'flex';
+            loader.style.opacity = '1';
+            loaderText.textContent = 'Actualizando datos desde Google Sheets...';
+
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) {
+                    throw new Error(`Respuesta de red no fue exitosa. Estatus: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                services = data.services.map(s => ({...s, resellerPrice: cleanNumber(s.P_Mayor), retailPrice: cleanNumber(s.P_Final), name: s.Nombre, description: s.Detalle, id: s.ID, category: s.Categoria }));
+                prizes = data.prizes.map(p => ({...p, value: cleanNumber(p.Valor), level: cleanNumber(p.Nivel_Combo), name: p.Nombre_Premio, id: p.ID_Premio }));
+                discountRules = data.rules.map(r => ({...r, apps: cleanNumber(r.Apps_Combo), discount: cleanNumber(r.Descuento), prizeCost: cleanNumber(r.Costo_Premio) }));
+                
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+                
+                return true;
+
+            } catch (error) {
+                console.error("Error al cargar los datos:", error);
+                let userErrorMessage = `Error al cargar: ${error.message}.`;
+                
+                if (error.message.includes("Cannot read properties of null") || error.message.includes("getSheetByName")) {
+                    userErrorMessage = "Error en Google Script. Causa más probable: El script no tiene permisos para leer tu Google Sheet. Por favor, asegúrate de que al implementar el script, hayas elegido 'Ejecutar como: Yo' y 'Quién tiene acceso: Cualquier usuario'. También, revisa que los nombres de las pestañas sean 'Servicios', 'Premios', y 'Reglas'.";
+                } else if (error.message.includes("Failed to fetch")) {
+                    userErrorMessage = "Error de red. No se pudo conectar con la API de Google. Revisa tu conexión a internet y que la URL de la API sea correcta.";
+                } else if (error.message.includes("No se encontró la hoja")) {
+                    userErrorMessage = `Error en Google Script: ${error.message} Asegúrate de que los nombres de las pestañas en tu Google Sheet son correctos.`;
+                }
+
+                loaderText.textContent = userErrorMessage;
+                loaderText.classList.add('text-red-500');
+                updateBtn.classList.remove('loading');
+                return false;
+            }
+        }
+        
+        async function initializeApp() {
+            const success = await loadDataFromApi();
+            if (success) {
+                renderServices();
+                addEventListeners();
+                updateBtn.classList.remove('loading');
+            }
+        }
+
+        // --- FUNCIONES DE RENDERIZADO ---
+        function renderServices() {
+            const categories = [...new Set(services.map(s => s.category))].filter(Boolean);
+            servicesAccordion.innerHTML = categories.map(category => {
+                const categoryServices = services.filter(s => s.category === category);
+                const servicesHTML = categoryServices.map(service => {
+                    const isAvailable = service.resellerPrice > 0 && service.retailPrice > 0;
+                    return `
+                    <div class="p-4 bg-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 ${!isAvailable ? 'service-unavailable' : ''}">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-white">${service.name} <span class="text-xs font-mono text-gray-400">(${service.id})</span></h4>
+                            <p class="text-sm">Mayor: <span class="font-bold">${formatCurrency(service.resellerPrice)}</span> / Final: <span class="font-bold">${formatCurrency(service.retailPrice)}</span></p>
+                            ${!isAvailable ? '<p class="text-xs text-red-400 font-bold mt-1">Servicio no disponible</p>' : ''}
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button data-action="info" data-id="${service.id}" class="bg-blue-500 hover:bg-blue-600 text-white w-8 h-8 rounded-full transition-colors" ${!isAvailable ? 'disabled' : ''}><i class="fas fa-info"></i></button>
+                            <button data-action="decrease" data-id="${service.id}" class="bg-gray-600 hover:bg-gray-500 w-8 h-8 rounded-full font-bold text-lg transition-colors" ${!isAvailable ? 'disabled' : ''}>-</button>
+                            <input type="number" min="0" value="${cart[service.id] || 0}" data-id="${service.id}" class="w-14 text-center bg-gray-900 border border-gray-600 rounded-md h-8" ${!isAvailable ? 'disabled' : ''}>
+                            <button data-action="increase" data-id="${service.id}" class="bg-gray-600 hover:bg-gray-500 w-8 h-8 rounded-full font-bold text-lg transition-colors" ${!isAvailable ? 'disabled' : ''}>+</button>
+                        </div>
+                    </div>`;
+                }).join('<hr class="border-white/10">');
+                
+                return `<details class="bg-brand-glass rounded-lg border border-white/10 overflow-hidden">
+                            <summary class="p-4 cursor-pointer font-bold text-xl text-brand-reseller summary-arrow">${category}</summary>
+                            <div>${servicesHTML}</div>
+                        </details>`;
+            }).join('');
+        }
+        
+        function renderSummary() {
+            if (Object.keys(cart).length === 0) {
+                summarySection.classList.add('hidden');
+                return;
+            }
+            summarySection.classList.remove('hidden');
+            
+            let totalRetail = 0, totalReseller = 0, totalItems = 0;
+            let itemsHTML = '<h3 class="text-xl font-bold mb-2">Servicios Seleccionados:</h3>';
+            for (const serviceId in cart) {
+                const quantity = cart[serviceId];
+                const service = services.find(s => s.id === serviceId);
+                if (!service) continue;
+                totalRetail += service.retailPrice * quantity;
+                totalReseller += service.resellerPrice * quantity;
+                totalItems += quantity;
+                itemsHTML += `<p>${quantity} x ${service.name} (${service.id})</p>`;
+            }
+
+            const rule = discountRules.find(r => r.apps === totalItems) || discountRules.slice().sort((a,b) => b.apps - a.apps).find(r => totalItems >= r.apps) || {discount: 0, prizeCost: 0};
+            
+            const availablePrizes = prizes.filter(p => p.level <= totalItems);
+            
+            summarySection.innerHTML = `
+                <h2 class="text-3xl font-bold text-center mb-6 text-brand-reseller">Resumen de Cotización</h2>
+                <div class="mb-6 border-b border-white/10 pb-6">${itemsHTML}</div>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-white/5 p-4 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2">Opción 1: Full</h3>
+                        <p>Total Cliente: <span class="font-bold">${formatCurrency(totalRetail)}</span></p>
+                        <p class="mt-2 text-brand-profit text-2xl font-bold">Ganancia: ${formatCurrency(totalRetail - totalReseller)}</p>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-lg">
+                        <h3 class="text-xl font-bold text-brand-primary mb-2">Opción 2: Clásica</h3>
+                        <p>Total Cliente: <span class="font-bold">${formatCurrency(totalRetail - rule.discount)}</span></p>
+                        <p class="mt-2 text-brand-profit text-2xl font-bold">Ganancia: ${formatCurrency(totalRetail - rule.discount - totalReseller)}</p>
+                        <p class="text-xs text-gray-400 mt-2">Regla aplicada: Descuento de ${formatCurrency(rule.discount)} por ${rule.apps} apps.</p>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-lg">
+                        <h3 class="text-xl font-bold text-brand-secondary mb-2">Opción 3: Inteligente</h3>
+                        <p>Total Cliente: <span class="font-bold">${formatCurrency(totalRetail)}</span></p>
+                        <p class="mt-2 text-brand-profit text-2xl font-bold">Ganancia: ${formatCurrency(totalRetail - totalReseller - rule.prizeCost)}</p>
+                        <p class="text-xs text-gray-400 mt-2">Regla aplicada: Costo de premio de ${formatCurrency(rule.prizeCost)} por ${rule.apps} apps.</p>
+                    </div>
+                </div>
+                ${availablePrizes.length > 0 ? `
+                <div id="prize-selection" class="mt-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-2xl font-bold text-brand-secondary">🎁 Elige un Premio para tu Cliente</h3>
+                        <button id="clear-prize-btn" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-3 rounded-lg text-sm transition-colors">Limpiar</button>
+                    </div>
+                    <div id="prize-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">${availablePrizes.map(prize => `
+                        <div data-prize-id="${prize.id}" class="prize-card ${selectedPrizeId === prize.id ? 'selected' : ''} bg-white/5 p-3 rounded-lg border-2 border-transparent cursor-pointer transition-all">
+                            <p class="font-bold">${prize.name} <span class="text-xs font-mono text-gray-400">(${prize.id})</span></p>
+                            <p class="text-sm text-brand-secondary">Valor percibido: ${formatCurrency(prize.value)}</p>
+                        </div>`).join('')}
+                    </div>
+                </div>` : ''}
+                <div class="mt-10 border-t border-white/10 pt-6">
+                    <h3 class="text-xl font-bold text-center mb-4">Generar Cotización para Mi Cliente</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <label class="radio-label p-4 rounded-lg cursor-pointer text-center bg-white/5">
+                            <input type="radio" name="quote_option" value="full" class="hidden">
+                            <span class="font-bold text-white text-lg">Precio Full</span>
+                        </label>
+                        <label class="radio-label p-4 rounded-lg cursor-pointer text-center bg-white/5">
+                            <input type="radio" name="quote_option" value="classic" class="hidden" checked>
+                            <span class="font-bold text-brand-primary text-lg">Opción Clásica</span>
+                        </label>
+                        <label class="radio-label p-4 rounded-lg cursor-pointer text-center bg-white/5">
+                            <input type="radio" name="quote_option" value="smart" class="hidden">
+                             <span class="font-bold text-brand-secondary text-lg">Opción Inteligente</span>
+                        </label>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-center gap-4 mt-4">
+                        <button id="send-to-client-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors flex-grow"><i class="fab fa-whatsapp mr-2"></i>Generar Mensaje para Cliente</button>
+                        <button id="send-to-admin-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"><i class="fab fa-whatsapp mr-2"></i>Enviar Pedido a Admin</button>
+                    </div>
+                </div>`;
+            
+            summarySection.querySelectorAll('.prize-card').forEach(card => card.addEventListener('click', selectPrize));
+            summarySection.querySelector('#clear-prize-btn')?.addEventListener('click', clearPrizeSelection);
+            summarySection.querySelector('#send-to-admin-btn').addEventListener('click', sendToAdmin);
+            summarySection.querySelector('#send-to-client-btn').addEventListener('click', sendToClient);
+        }
+
+        // --- MANEJO DE EVENTOS ---
+        function updateCartButton() {
+            const count = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+            cartCount.textContent = count;
+            count > 0 ? cartButton.classList.remove('scale-0') : cartButton.classList.add('scale-0');
+        }
+
+        function handleAccordionClick(e) {
+            const button = e.target.closest('button');
+            if (!button || button.disabled) return;
+            const action = button.dataset.action;
+            const id = button.dataset.id;
+            const currentQty = cart[id] || 0;
+
+            if (action === 'increase') updateCart(id, currentQty + 1);
+            else if (action === 'decrease') updateCart(id, currentQty - 1);
+            else if (action === 'info') {
+                const service = services.find(s => s.id === id);
+                document.getElementById('modal-title').textContent = service.name;
+                document.getElementById('modal-description').textContent = service.description;
+                document.getElementById('service-modal').classList.remove('hidden');
+            }
+        }
+        
+        function updateCart(serviceId, quantity) {
+            quantity = Math.max(0, quantity);
+            if (quantity === 0) delete cart[serviceId];
+            else cart[serviceId] = quantity;
+
+            const input = document.querySelector(`input[data-id="${serviceId}"]`);
+            if(input) input.value = quantity;
+            renderSummary();
+            updateCartButton();
+        }
+        
+        function selectPrize(e) {
+            selectedPrizeId = selectedPrizeId === e.currentTarget.dataset.prizeId ? null : e.currentTarget.dataset.prizeId;
+            renderSummary();
+        }
+
+        function clearPrizeSelection() {
+            selectedPrizeId = null;
+            renderSummary();
+        }
+
+        function generateClientWhatsAppMessage() {
+            const selectedOption = document.querySelector('input[name="quote_option"]:checked').value;
+            let message = `¡Hola! 👋 Te envío la cotización de tu combo *Generando Valor*:\n\n*SERVICIOS SELECCIONADOS:*\n`;
+            let totalRetail = 0, totalItems = 0;
+            for (const id in cart) {
+                const s = services.find(s => s.id === id);
+                if(!s) continue;
+                message += `• ${cart[id]}x ${s.name}\n`;
+                totalRetail += s.retailPrice * cart[id];
+                totalItems += cart[id];
+            }
+            const rule = discountRules.find(r => r.apps === totalItems) || discountRules.slice().sort((a,b) => b.apps - a.apps).find(r => totalItems >= r.apps) || {discount: 0, prizeCost: 0};
+            
+            message += `\n------------------------\n\n`;
+
+            if (selectedOption === 'full') {
+                message += `*Opción 1: Precio Full* 💲\nTotal a pagar: *${formatCurrency(totalRetail)}*`;
+            } else if (selectedOption === 'classic') {
+                const finalPrice = totalRetail - rule.discount;
+                message += `*Opción 2: Clásica (con Descuento)* 🎁\nPrecio Original: ~${formatCurrency(totalRetail)}~\nDescuento por combo: -${formatCurrency(rule.discount)}\n*TOTAL A PAGAR: ${formatCurrency(finalPrice)}* 🥳\n\n`;
+                message += `*¡Cada app te saldría en solo ${formatCurrency(finalPrice / totalItems)}!*`;
+            } else if (selectedOption === 'smart') {
+                if (!selectedPrizeId) { alert('Por favor, selecciona un premio para la Opción Inteligente.'); return null; }
+                const prize = prizes.find(p => p.id === selectedPrizeId);
+                message += `*Opción 3: Inteligente (con Premio)* 🏆\nPagas el precio completo: *${formatCurrency(totalRetail)}*\n¡Y te llevas de REGALO este increíble premio!\n\n`;
+                message += `🎁 *PREMIO:* ${prize.name}\n*(Valorado en ${formatCurrency(prize.value)})*\n\n`;
+                message += `Gracias a tu premio, *¡es como si cada app te hubiera costado solo ${formatCurrency((totalRetail - prize.value) / totalItems)}!* Un negocio redondo. 🚀`;
+            }
+            return encodeURIComponent(message);
+        }
+
+        function sendToAdmin() {
+            const selectedOption = document.querySelector('input[name="quote_option"]:checked').value;
+            let totalReseller = 0;
+            let totalItems = 0;
+            let message = `📝 *Nuevo Pedido de Vendedor*\n\n`;
+
+            message += `*DETALLE DE SERVICIOS:*\n`
+            for (const id in cart) {
+                const s = services.find(s => s.id === id);
+                if(!s) continue;
+                message += `• ${cart[id]}x ${s.name} (ID: ${id}) - Costo: ${formatCurrency(s.resellerPrice * cart[id])}\n`;
+                totalReseller += s.resellerPrice * cart[id];
+                totalItems += cart[id];
+            }
+            
+            const rule = discountRules.find(r => r.apps === totalItems) || discountRules.slice().sort((a,b) => b.apps - a.apps).find(r => totalItems >= r.apps) || {discount: 0, prizeCost: 0};
+            let finalCost = totalReseller;
+
+            message += `\n------------------------\n`;
+            
+            if (selectedOption === 'full') {
+                 message += `*MODALIDAD: Precio Full*\n`;
+            } else if (selectedOption === 'classic') {
+                message += `*MODALIDAD: Opción Clásica*\n(El descuento de ${formatCurrency(rule.discount)} se aplica al cliente final)\n`;
+            } else if (selectedOption === 'smart') {
+                message += `*MODALIDAD: Opción Inteligente*\n`;
+                if (!selectedPrizeId) { 
+                    alert('Se debe seleccionar un premio para el pedido con Opción Inteligente.');
+                    return;
+                }
+                const prize = prizes.find(p => p.id === selectedPrizeId);
+                finalCost += rule.prizeCost;
+                message += `*Premio a entregar:* ${prize.name} (ID: ${prize.id})\n`;
+                message += `*Costo del Premio:* ${formatCurrency(rule.prizeCost)}\n`;
+            }
+            
+            message += `------------------------\n`;
+            message += `*COSTO TOTAL A PAGAR (Vendedor):*\n*${formatCurrency(finalCost)}*`;
+            
+            window.open(`https://api.whatsapp.com/send?phone=573041162388&text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function sendToClient() {
+            const message = generateClientWhatsAppMessage();
+            if(message) window.open(`https://api.whatsapp.com/send?text=${message}`, '_blank');
+        }
+        
+        function addEventListeners() {
+            servicesAccordion.addEventListener('click', handleAccordionClick);
+            servicesAccordion.addEventListener('input', e => {
+                if(e.target.matches('input[type="number"]') && !e.target.disabled) {
+                    updateCart(e.target.dataset.id, parseInt(e.target.value, 10));
+                }
+            });
+            document.getElementById('close-modal-btn').addEventListener('click', () => {
+                 document.getElementById('service-modal').classList.add('hidden');
+            });
+            document.getElementById('clear-selection-btn').addEventListener('click', () => {
+                cart = {};
+                selectedPrizeId = null;
+                renderSummary();
+                updateCartButton();
+                servicesAccordion.innerHTML = '';
+                renderServices();
+            });
+            updateBtn.addEventListener('click', async () => {
+                 const success = await loadDataFromApi();
+                 if(success) {
+                    cart = {}; // Limpia el carrito para evitar inconsistencias con nuevos datos
+                    selectedPrizeId = null;
+                    renderServices();
+                    renderSummary();
+                    updateCartButton();
+                    updateBtn.classList.remove('loading');
+                    // Usar un modal o notificación más elegante en el futuro.
+                    const modal = document.getElementById('service-modal');
+                    document.getElementById('modal-title').textContent = 'Éxito';
+                    document.getElementById('modal-description').textContent = '¡Contenido actualizado desde Google Sheets!';
+                    modal.classList.remove('hidden');
+                 }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation Plus: Essential, Extra y Deluxe</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0B1426',
+                        'brand-glass': 'rgba(20, 30, 55, 0.7)',
+                        'ps-blue': '#0070D1', 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0B1426;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 112, 209, 0.15), transparent 50%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-6xl">
+            
+        <header class="text-center mb-12">
+            <i class="fa-brands fa-playstation text-7xl md:text-8xl text-ps-blue mb-4"></i>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+               Tu Experiencia PlayStation,<br>Elevada a Otro Nivel.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Descubre el plan de PlayStation Plus perfecto para ti y accede a un universo de juegos y beneficios.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">¿Por qué Necesitas PlayStation Plus?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-headset text-5xl text-ps-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Multijugador Online</h3>
+                    <p class="text-gray-400 text-sm mt-2">Juega con tus amigos y compite contra el mundo en tus títulos favoritos como FIFA, Call of Duty y más.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-gift text-5xl text-ps-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Juegos Mensuales</h3>
+                    <p class="text-gray-400 text-sm mt-2">Cada mes, añade nuevos juegos de PS4 y PS5 a tu biblioteca para jugarlos mientras seas miembro.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-gamepad text-5xl text-ps-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Catálogo de Juegos</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a una increíble colección de cientos de juegos de PS4 y PS5 para descargar y jugar cuando quieras.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Nivel de PlayStation Plus</h2>
+             <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+                 <!-- Plan Essential -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Essential</h3>
+                    <p class="text-sm text-gray-400 mb-4">El primer paso a un nuevo mundo</p>
+                    <ul class="text-gray-300 mb-6 flex-grow space-y-2 text-left list-disc list-inside">
+                        <li>Multijugador online.</li>
+                        <li>Juegos mensuales (2-3 juegos).</li>
+                        <li>Descuentos exclusivos en la PS Store.</li>
+                        <li>Almacenamiento en la nube.</li>
+                    </ul>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+                 
+                 <!-- Plan Deluxe (Destacado) -->
+                  <div class="bg-ps-blue p-8 rounded-2xl text-white flex flex-col text-center transform scale-105 shadow-2xl shadow-ps-blue/20">
+                    <h3 class="text-2xl font-bold">Deluxe</h3>
+                    <p class="text-sm text-blue-200 mb-4">La experiencia PlayStation definitiva</p>
+                    <ul class="text-blue-100 mb-6 flex-grow space-y-2 text-left list-disc list-inside">
+                        <li class="font-bold">TODO lo de Essential y Extra.</li>
+                        <li class="font-bold text-yellow-300">Catálogo de Clásicos</li>
+                        <p class="text-xs text-blue-200 ml-6 mb-2">(Juegos de PS1, PS2 y PSP)</p>
+                        <li class="font-bold text-yellow-300">Pruebas de juegos</li>
+                         <p class="text-xs text-blue-200 ml-6 mb-2">(Prueba lanzamientos por tiempo limitado)</p>
+                    </ul>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white hover:bg-gray-200 text-ps-blue font-bold py-3 px-6 rounded-lg transition-colors">¡Quiero lo Mejor!</a>
+                 </div>
+
+                 <!-- Plan Extra -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Extra</h3>
+                    <p class="text-sm text-gray-400 mb-4">Para los verdaderos exploradores</p>
+                    <ul class="text-gray-300 mb-6 flex-grow space-y-2 text-left list-disc list-inside">
+                        <li class="font-bold">TODO lo de Essential.</li>
+                        <li class="font-bold text-yellow-300">Catálogo de juegos</li>
+                        <p class="text-xs text-gray-400 ml-6 mb-2">(Cientos de títulos de PS4 y PS5)</p>
+                    </ul>
+                     <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+             </div>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2025 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

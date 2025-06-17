@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal+: Series, Películas y Realities Exclusivos</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#101018',
+                        'brand-glass': 'rgba(30, 30, 50, 0.8)',
+                        'universal-purple': '#5E29E3',
+                        'universal-gold': '#FBBF24',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #101018;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(94, 41, 227, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(251, 191, 36, 0.1), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="text-universal-gold">Universal+</span><br> Tus Series Favoritas, Tu Universo.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Accede a las series exclusivas, los realities del momento y las películas que no encontrarás en otro lugar.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Un Catálogo Lleno de Estrellas</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-masks-theater text-5xl text-universal-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Series Aclamadas</h3>
+                    <p class="text-gray-400 text-sm mt-2">Disfruta de temporadas completas de series exitosas de Universal TV, USA Network y SYFY.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-camera-retro text-5xl text-universal-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Realities de E!</h3>
+                    <p class="text-gray-400 text-sm mt-2">No te pierdas los realities más populares y el contenido exclusivo del canal E! Entertainment.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-film text-5xl text-universal-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Películas y Estrenos</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a un gran catálogo de películas de Universal Pictures y estrenos exclusivos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Cómo Funciona -->
+        <section class="mb-12 bg-brand-glass backdrop-blur-md p-8 rounded-2xl border border-white/10">
+             <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-universal-gold mb-4">Acceso Exclusivo, Precio Inteligente</h2>
+                    <p class="text-gray-300">Te damos acceso a una cuenta <span class="font-bold">Universal+</span> para que disfrutes de toda la experiencia sin compartir.</p>
+                    <p class="text-gray-300 mt-4">Pagas un precio mucho más accesible por el mismo servicio premium, con la garantía y el soporte que nos caracteriza. <strong class="text-white">¡Todo el entretenimiento premium en un solo lugar!</strong></p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white/5 p-8 rounded-lg">
+                        <p class="text-gray-400 text-lg">Precio por tu Acceso</p>
+                        <p class="text-5xl font-extrabold text-white my-2">$14.900</p>
+                        <p class="text-gray-400">/ mes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to Action Combo -->
+        <section class="text-center bg-brand-glass p-8 rounded-2xl border-2 border-universal-gold">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Te imaginas Universal+ y Netflix juntos?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">¡No te limites! Usa nuestro simulador para armar un combo con todos tus servicios favoritos, ahorra mucho más y llévate premios increíbles.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-universal-gold text-brand-dark font-bold py-4 px-10 rounded-full text-xl hover:bg-yellow-400 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ¡Armar mi Combo!
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2025 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

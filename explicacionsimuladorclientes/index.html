@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Usar El Pulso del Streaming</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#111827',
+                        'brand-glass': 'rgba(31, 41, 55, 0.7)',
+                        'brand-blue': '#3B82F6', 
+                        'brand-violet': '#8B5CF6',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827;
+        }
+        .step-card {
+            border-left: 4px solid #3B82F6;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-3xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+                Sácale el Máximo Provecho a <span class="text-brand-blue">Tu Simulador</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400">Sigue esta guía paso a paso para crear tu combo perfecto y descubrir ofertas increíbles.</p>
+        </header>
+
+        <!-- Etapa 1: Arma tu Combo -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6"><span class="bg-brand-blue text-white rounded-full px-4 py-2 mr-3">1</span> Arma tu Combo Ideal</h2>
+            <div class="space-y-6">
+                <div class="bg-brand-glass p-6 rounded-lg step-card">
+                    <p><strong>Paso 1:</strong> Abre la categoría que te interese (ej: "Streaming", "Música").</p>
+                </div>
+                <div class="bg-brand-glass p-6 rounded-lg step-card">
+                    <p><strong>Paso 2:</strong> Selecciona el servicio que deseas con el botón <strong>[+]</strong> para aumentar la cantidad o <strong>[-]</strong> para disminuirla.</p>
+                </div>
+                <div class="bg-brand-glass p-6 rounded-lg step-card">
+                    <p><strong>Paso 3:</strong> Cuando termines con una categoría, puedes cerrarla para mantener todo ordenado y pasar a la siguiente.</p>
+                </div>
+                 <div class="bg-brand-glass p-6 rounded-lg step-card">
+                    <p><strong>Paso 4:</strong> Una vez que hayas añadido todos tus servicios, toca el <i class="fa-solid fa-shopping-cart text-yellow-400"></i> **carrito flotante** en la esquina. Él te llevará al resumen de tu cotización.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Etapa 2: Descubre tus Ofertas -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6"><span class="bg-brand-violet text-white rounded-full px-4 py-2 mr-3">2</span> Descubre tus Ofertas</h2>
+             <div class="bg-brand-glass p-8 rounded-lg border-l-4 border-brand-violet">
+                <p class="mb-4">Aquí es donde sucede la magia. Dependiendo de tu selección, el simulador te mostrará diferentes opciones:</p>
+                <ul class="space-y-4">
+                    <li><i class="fa-solid fa-arrow-right text-gray-400 mr-2"></i>Si elegiste un solo servicio, verás la opción **"Precio Full"**, sin descuentos ni premios.</li>
+                    <li class="p-4 bg-blue-900/30 border border-blue-500 rounded-lg"><i class="fa-solid fa-tags text-brand-blue mr-2"></i>Si llevas un combo (2 o más servicios), desbloqueas la **"Opción Clásica"**, que te da un descuento fijo por la cantidad de apps que lleves.</li>
+                    <li class="p-4 bg-pink-900/30 border border-pink-500 rounded-lg"><i class="fa-solid fa-gift text-pink-400 mr-2"></i>¡La mejor de todas! También desbloqueas la **"Opción Inteligente"**. Aquí, sacrificas el descuento de la Opción Clásica a cambio de un **premio de mucho mayor valor** que tú mismo puedes elegir.</li>
+                </ul>
+                <p class="mt-6 font-bold text-yellow-300 text-center">Recuerda: entre más servicios cotices, ¡mejores y más premios desbloquearás para elegir a tu gusto!</p>
+            </div>
+        </section>
+
+         <!-- Etapa 3: Pide tu Cotización -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6"><span class="bg-green-500 text-white rounded-full px-4 py-2 mr-3">3</span> Pide tu Cotización</h2>
+            <div class="space-y-6">
+                <div class="bg-brand-glass p-6 rounded-lg step-card border-green-500">
+                    <p><strong>Paso 1:</strong> Revisa las opciones y decide cuál te conviene más: ¿el descuento o el premio?</p>
+                </div>
+                <div class="bg-brand-glass p-6 rounded-lg step-card border-green-500">
+                    <p><strong>Paso 2:</strong> Elige la opción que prefieras (Clásica, Inteligente o Full) y mira el **valor total a pagar**.</p>
+                </div>
+                <div class="bg-brand-glass p-6 rounded-lg step-card border-green-500">
+                    <p><strong>Paso 3:</strong> Presiona el botón de **"Enviar Cotización a mi Vendedor"**. Esto abrirá tu WhatsApp con un mensaje listo para que lo envíes al chat de tu proveedor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center bg-gray-800 p-8 rounded-2xl">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Listo para Probarlo?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Ahora que sabes cómo funciona, entra al simulador y descubre el combo perfecto para ti.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-brand-blue text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-rocket mr-2"></i> Ir al Simulador
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2025 Impulso Digital. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

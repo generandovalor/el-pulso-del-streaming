@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descifrador de Cotizaciones</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (Íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f0f1e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.7)',
+                        'brand-primary': '#00aaff',
+                        'brand-secondary': '#ff00c1',
+                        'brand-reseller': '#00ff9d',
+                        'brand-profit': '#2ecc71',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Adicionales -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f1e;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 170, 255, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(255, 0, 193, 0.2), transparent 40%);
+            background-attachment: fixed;
+        }
+        #loader, #notification-modal {
+            transition: opacity 0.3s;
+        }
+        .loader-spinner {
+            border-top-color: #00aaff;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <!-- Pantalla de Carga -->
+    <div id="loader" class="fixed inset-0 bg-brand-dark z-50 flex flex-col items-center justify-center p-4">
+        <div class="loader-spinner w-16 h-16 border-4 border-gray-600 rounded-full"></div>
+        <p id="loader-text" class="mt-4 text-lg text-white text-center">Cargando decodificador...</p>
+    </div>
+
+    <!-- MODAL DE NOTIFICACIONES -->
+    <div id="notification-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden opacity-0">
+        <div id="notification-content" class="bg-brand-dark border rounded-lg p-8 w-11/12 md:w-1/3 relative text-center">
+            <h3 id="notification-title" class="text-2xl font-bold mb-4"></h3>
+            <p id="notification-message"></p>
+            <button id="notification-close-btn" class="mt-6 bg-brand-primary text-white font-bold py-2 px-6 rounded-lg">Entendido</button>
+        </div>
+    </div>
+    
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Descifrador de Cotizaciones</h1>
+            <p class="text-brand-primary text-lg">Pega la cotización de tu cliente para ver los detalles.</p>
+        </header>
+
+        <div class="max-w-2xl mx-auto">
+            <div id="helper-text" class="mb-4 p-4 bg-yellow-900/30 border border-yellow-500 rounded-lg text-yellow-300 text-sm">
+                <p><i class="fa-solid fa-circle-info mr-2"></i>Pega aquí el mensaje de tu cliente. Puedes pegar el mensaje completo o solo la parte de "INFO PARA VENDEDOR".</p>
+            </div>
+            <textarea id="quote-input" rows="8" class="w-full p-4 bg-brand-glass border border-white/20 rounded-lg text-gray-200 focus:ring-2 focus:ring-brand-primary focus:outline-none" placeholder="Pega aquí el mensaje completo de WhatsApp que recibiste de tu cliente..."></textarea>
+            <button id="decipher-btn" class="mt-4 w-full bg-brand-reseller hover:bg-green-400 text-brand-dark font-bold py-3 px-6 rounded-lg transition-colors text-xl">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Descifrar
+            </button>
+        </div>
+
+        <section id="result-summary" class="mt-8 max-w-4xl mx-auto hidden"></section>
+
+        <!-- Portal de Vendedores -->
+        <section class="mt-12 text-center">
+             <div class="inline-block p-6 bg-brand-glass border border-white/10 rounded-2xl max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-brand-primary mb-3">Portal de Vendedores</h3>
+                <p class="text-gray-400 mb-4">Accede a todas tus herramientas, noticias, recursos y mucho más.</p>
+                <a href="#" class="inline-block bg-brand-primary hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+                    <i class="fa-solid fa-arrow-right-to-bracket mr-2"></i>Ir al Portal
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- CONFIGURACIÓN ---
+        const API_URL = "https://script.google.com/macros/s/AKfycbx8kpOhnpjlW3fhJytG38rbRF_aLhs97e56ZYn2VX9Nc7qUot8ns0VP3YE0pwAdQptXwQ/exec";
+        const ADMIN_WHATSAPP = "573041162388";
+
+        // --- ESTADO DE LA APLICACIÓN ---
+        let services = [];
+        let prizes = [];
+        let discountRules = [];
+        
+        // --- ELEMENTOS DEL DOM ---
+        const loader = document.getElementById('loader');
+        const loaderText = document.getElementById('loader-text');
+        const quoteInput = document.getElementById('quote-input');
+        const decipherBtn = document.getElementById('decipher-btn');
+        const resultSummary = document.getElementById('result-summary');
+        const notificationModal = document.getElementById('notification-modal');
+
+        // --- FUNCIONES ---
+        function showNotification(title, message, type = 'info') {
+            const modalContent = document.getElementById('notification-content');
+            const modalTitle = document.getElementById('notification-title');
+            const modalMessage = document.getElementById('notification-message');
+            
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            
+            modalContent.className = 'bg-brand-dark border rounded-lg p-8 w-11/12 md:w-1/3 relative text-center'; // Reset classes
+            if (type === 'success') {
+                modalContent.classList.add('border-green-500');
+                modalTitle.classList.add('text-green-500');
+            } else if (type === 'error') {
+                modalContent.classList.add('border-red-500');
+                modalTitle.classList.add('text-red-500');
+            } else {
+                 modalContent.classList.add('border-brand-primary');
+                 modalTitle.classList.add('text-brand-primary');
+            }
+
+            notificationModal.classList.remove('hidden');
+            setTimeout(() => notificationModal.classList.remove('opacity-0'), 10);
+        }
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(value);
+        }
+        
+        function cleanNumber(value) {
+            if(typeof value === 'number') return value;
+            if (typeof value !== 'string') return 0;
+            return Number(value.replace(/[^0-9]/g, ''));
+        }
+
+        async function loadDataFromApi() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error(`Error de red: ${response.status}`);
+                const data = await response.json();
+                if (data.error) throw new Error(data.error);
+                
+                services = data.services.map(s => ({ id: s.ID, name: s.Nombre, resellerPrice: cleanNumber(s.P_Mayor), retailPrice: cleanNumber(s.P_Final) }));
+                prizes = data.prizes.map(p => ({ id: p.ID_Premio, name: p.Nombre_Premio, value: cleanNumber(p.Valor), level: cleanNumber(p.Nivel_Combo) }));
+                discountRules = data.rules.map(r => ({ apps: cleanNumber(r.Apps_Combo), discount: cleanNumber(r.Descuento), prizeCost: cleanNumber(r.Costo_Premio) }));
+                
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+                return true;
+            } catch (error) {
+                console.error("Error cargando datos:", error);
+                loaderText.textContent = `Error al cargar. Intenta de nuevo.`;
+                loaderText.classList.add('text-red-500');
+                return false;
+            }
+        }
+
+        function decipherQuote() {
+            const text = quoteInput.value;
+            let vendorInfo = '';
+
+            if (text.includes("INFO PARA VENDEDOR")) {
+                const vendorInfoMatch = text.match(/INFO PARA VENDEDOR:\s*(.*)/s);
+                if (vendorInfoMatch && vendorInfoMatch[1]) {
+                    vendorInfo = vendorInfoMatch[1];
+                }
+            } else if (text.includes("Servicios:")) {
+                vendorInfo = text;
+            } else {
+                showNotification('Error de Formato', 'El texto no parece una cotización válida. Debe contener la sección "INFO PARA VENDEDOR" o al menos la palabra "Servicios:".', 'error');
+                return;
+            }
+
+            try {
+                const servicesMatches = [...vendorInfo.matchAll(/(\d+)\+([A-Z0-9]+)/g)];
+                const prizeMatch = vendorInfo.match(/Premio:\s*(\S+)/);
+
+                if (servicesMatches.length === 0) {
+                    throw new Error("No se pudo descifrar ningún servicio válido. Revisa el formato del texto (ej: 1+S001,2+S002).");
+                }
+
+                const cart = {};
+                servicesMatches.forEach(match => {
+                    const quantity = parseInt(match[1], 10);
+                    const id = match[2];
+                    cart[id] = (cart[id] || 0) + quantity;
+                });
+
+                const selectedPrizeId = prizeMatch ? prizeMatch[1].trim() : null;
+
+                renderResult(cart, selectedPrizeId);
+
+            } catch (error) {
+                showNotification('Error al Descifrar', error.message, 'error');
+                resultSummary.classList.add('hidden');
+            }
+        }
+
+        function renderResult(cart, selectedPrizeId) {
+            resultSummary.classList.remove('hidden');
+
+            let totalRetail = 0;
+            let totalReseller = 0;
+            let totalItems = 0;
+            
+            let customerItemsHTML = '<ul>';
+            for (const serviceId in cart) {
+                const quantity = cart[serviceId];
+                const service = services.find(s => s.id === serviceId);
+                if (!service) {
+                     customerItemsHTML += `<li class="text-red-400 font-semibold">${quantity}x ID de servicio no encontrado: ${serviceId}</li>`;
+                    continue;
+                }
+                
+                totalRetail += service.retailPrice * quantity;
+                totalReseller += service.resellerPrice * quantity;
+                totalItems += quantity;
+                
+                customerItemsHTML += `<li class="text-gray-300">${quantity}x ${service.name}</li>`;
+            }
+            customerItemsHTML += '</ul>';
+
+            let customerPrizeHTML = '';
+            if (selectedPrizeId) {
+                const prize = prizes.find(p => p.id === selectedPrizeId);
+                customerPrizeHTML = `<h4 class="text-lg font-semibold mt-4">Premio Incluido:</h4>`;
+                if (prize) {
+                    customerPrizeHTML += `<p class="text-brand-secondary">${prize.name}</p>`;
+                } else {
+                    customerPrizeHTML += `<p class="text-red-400 font-semibold">ID de premio no encontrado: ${selectedPrizeId}</p>`;
+                }
+            }
+
+            const rule = discountRules.find(r => r.apps === totalItems) || discountRules.slice().sort((a,b) => b.apps - a.apps).find(r => totalItems >= r.apps) || {discount: 0, prizeCost: 0};
+            
+            const clientMessage = quoteInput.value;
+            let customerOption = 'full';
+            if (selectedPrizeId) {
+                customerOption = 'smart';
+            } else if (clientMessage.includes("Opción 2: Clásica") || clientMessage.includes("con Descuento")) {
+                customerOption = 'classic';
+            }
+            
+            let finalCost = totalReseller;
+            let profit = 0;
+            let prizeCostHTML = '';
+            let optionText = 'Opción del Cliente: Precio Full';
+
+            if (customerOption === 'classic') {
+                profit = totalRetail - rule.discount - totalReseller;
+                optionText = `Opción del Cliente: Clásica (Ahorro de ${formatCurrency(rule.discount)})`;
+            } else if (customerOption === 'smart') {
+                profit = totalRetail - totalReseller - rule.prizeCost;
+                finalCost += rule.prizeCost;
+                const prize = prizes.find(p => p.id === selectedPrizeId);
+                optionText = `Opción del Cliente: Inteligente`;
+                prizeCostHTML = `<div class="flex justify-between items-center text-sm mt-2 border-t border-dashed border-gray-600 pt-2">
+                                <span class="text-brand-secondary">Costo del Premio: ${prize ? prize.name : ''} (${selectedPrizeId})</span>
+                                <span class="font-mono text-brand-secondary">${formatCurrency(rule.prizeCost)}</span>
+                             </div>`;
+            } else { // full
+                profit = totalRetail - totalReseller;
+            }
+            
+            resultSummary.innerHTML = `
+                <div class="bg-brand-glass backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8">
+                    <h2 class="text-2xl font-bold text-center mb-4 text-brand-primary">Resumen del Pedido del Cliente</h2>
+                    <div class="space-y-1">
+                        ${customerItemsHTML}
+                        ${customerPrizeHTML}
+                    </div>
+                </div>
+
+                <div class="bg-brand-glass backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 mt-6">
+                    <h2 class="text-2xl font-bold text-center mb-4 text-brand-reseller">Detalles para el Vendedor</h2>
+                    <div class="space-y-2 mb-4">
+                        ${Object.keys(cart).map(id => {
+                            const s = services.find(serv => serv.id === id);
+                            const q = cart[id];
+                            return `<div class="flex justify-between items-center text-sm">
+                                        <span>${q}x ${s ? s.name : 'Servicio Desconocido'} <span class="text-gray-400">(${id})</span></span>
+                                        <span class="font-mono">${s ? formatCurrency(s.resellerPrice * q) : 'N/A'}</span>
+                                    </div>`;
+                        }).join('')}
+                        ${prizeCostHTML}
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 text-center border-t border-white/20 pt-4 mt-4">
+                        <div class="bg-white/5 p-4 rounded-lg">
+                            <h3 class="text-lg font-bold text-white mb-2">Tu Ganancia</h3>
+                            <p class="text-xs text-gray-400 mb-2">(${optionText})</p>
+                            <p class="text-2xl font-bold text-brand-profit">${formatCurrency(profit)}</p>
+                        </div>
+                         <div class="bg-white/5 p-4 rounded-lg">
+                            <h3 class="text-lg font-bold text-yellow-400 mb-2">Total a Pagar al Admin</h3>
+                             <p class="text-3xl font-bold text-white">${formatCurrency(finalCost)}</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex justify-center">
+                         <button id="send-to-admin-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"><i class="fab fa-whatsapp mr-2"></i>Copiar Pedido para Admin</button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('send-to-admin-btn').addEventListener('click', () => {
+                let message = `📝 *Nuevo Pedido de Vendedor* 📝\n\n*DETALLE DE SERVICIOS:*\n`;
+                for (const id in cart) {
+                    const s = services.find(s => s.id === id);
+                    if(!s) continue;
+                    message += `• ${cart[id]}x ${s.name} (ID: ${id}) - Costo: ${formatCurrency(s.resellerPrice * cart[id])}\n`;
+                }
+                
+                if (customerOption === 'smart') {
+                    const prize = prizes.find(p => p.id === selectedPrizeId);
+                    message += `*Premio a entregar:* ${prize ? prize.name : 'N/A'} (ID: ${selectedPrizeId})\n`;
+                    message += `*Costo del Premio:* ${formatCurrency(rule.prizeCost)}\n`;
+                }
+                message += `\n------------------------\n`;
+                message += `*COSTO TOTAL A PAGAR (Vendedor):* *${formatCurrency(finalCost)}*`;
+            
+                const textarea = document.createElement('textarea');
+                textarea.value = message;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                showNotification('¡Éxito!', 'Pedido copiado al portapapeles. Listo para enviar al administrador por WhatsApp.', 'success');
+            });
+        }
+        
+        // --- INICIO ---
+        async function initializeApp() {
+            const success = await loadDataFromApi();
+            if (success) {
+                decipherBtn.addEventListener('click', decipherQuote);
+            }
+        }
+        
+        document.getElementById('notification-close-btn').addEventListener('click', () => {
+            notificationModal.classList.add('opacity-0');
+            setTimeout(() => notificationModal.classList.add('hidden'), 300);
+        });
+
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+    </script>
+</body>
+</html>
+

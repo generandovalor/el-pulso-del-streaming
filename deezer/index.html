@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deezer Premium: Tu Música, Tu Flow</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#191414',
+                        'brand-glass': 'rgba(40, 40, 40, 0.7)',
+                        'deezer-pink': '#EF5466',
+                        'deezer-purple': '#A83EE8',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #191414;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(239, 84, 102, 0.15), transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(168, 62, 232, 0.1), transparent 50%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+             <i class="fa-solid fa-compact-disc text-7xl md:text-8xl text-deezer-pink mb-4"></i>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+               Tu Banda Sonora Personal e Infinita.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Descubre música que te encantará con la función Flow de Deezer Premium.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">¿Por qué Deezer Premium?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-infinity text-5xl text-deezer-pink mb-4"></i>
+                    <h3 class="text-xl font-bold">Flow Infinito</h3>
+                    <p class="text-gray-400 text-sm mt-2">La IA de Deezer crea una mezcla infinita de tus canciones favoritas y nuevos descubrimientos.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-waveform-lines text-5xl text-deezer-pink mb-4"></i>
+                    <h3 class="text-xl font-bold">Sonido de Alta Fidelidad</h3>
+                    <p class="text-gray-400 text-sm mt-2">Escucha la música en calidad sin pérdidas (HiFi) para una experiencia auditiva superior.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-headphones-simple text-5xl text-deezer-pink mb-4"></i>
+                    <h3 class="text-xl font-bold">Sin Anuncios y Offline</h3>
+                    <p class="text-gray-400 text-sm mt-2">Disfruta de tu música sin interrupciones y descarga tus canciones favoritas para escucharlas donde quieras.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Cómo Funciona -->
+        <section class="mb-12 bg-brand-glass backdrop-blur-md p-8 rounded-2xl border border-white/10">
+             <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-deezer-pink mb-4">Música que te Entiende</h2>
+                    <p class="text-gray-300">Te proporcionamos una cuenta <span class="font-bold">Deezer Premium</span> individual para que disfrutes de tu música y de las recomendaciones personalizadas de Flow.</p>
+                    <p class="text-gray-300 mt-4">Pagas un precio mucho más accesible por el mismo servicio premium, con la garantía y el soporte que nos caracteriza. <strong class="text-white">¡Deja que la música fluya!</strong></p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white/5 p-8 rounded-lg">
+                        <p class="text-gray-400 text-lg">Precio por tu Cuenta Premium</p>
+                        <p class="text-5xl font-extrabold text-white my-2">$12.000</p>
+                        <p class="text-gray-400">/ mes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to Action Combo -->
+        <section class="text-center bg-brand-glass p-8 rounded-2xl border-2 border-deezer-pink">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Te falta algo para ver?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Usa nuestro simulador para añadir Netflix, Disney+ y más a tu plan de Deezer. ¡Crea el combo de entretenimiento total!</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-deezer-pink text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-pink-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ¡Armar mi Combo!
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2025 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

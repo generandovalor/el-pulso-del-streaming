@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox Game Pass: Cientos de Juegos, Una Sola Suscripción</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#101010',
+                        'brand-glass': 'rgba(30, 30, 30, 0.7)',
+                        'xbox-green': '#107C10', 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #101010;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(16, 124, 16, 0.15), transparent 50%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <i class="fa-brands fa-xbox text-7xl md:text-8xl text-xbox-green mb-4"></i>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+               Cientos de Juegos.<br>Una Sola Suscripción.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Descubre tu próximo juego favorito. Accede a un catálogo inmenso de títulos para consola y PC.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">El Netflix de los Videojuegos</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-gamepad text-5xl text-xbox-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Juega desde el Día Uno</h3>
+                    <p class="text-gray-400 text-sm mt-2">Disfruta de los lanzamientos de Xbox Game Studios el mismo día de su estreno mundial.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-book-atlas text-5xl text-xbox-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Un Catálogo Enorme</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a cientos de juegos de alta calidad, desde grandes éxitos hasta joyas independientes.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-users text-5xl text-xbox-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Multijugador Online</h3>
+                    <p class="text-gray-400 text-sm mt-2">Juega con amigos y compite contra rivales de todo el mundo en la red más avanzada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Game Pass</h2>
+             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                 <!-- Plan Core -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Game Pass Core</h3>
+                    <p class="text-sm text-gray-400 mb-4">La evolución de Xbox Live Gold</p>
+                    <ul class="text-gray-300 mb-6 flex-grow space-y-2 text-left list-disc list-inside">
+                        <li>Multijugador online para consola.</li>
+                        <li>Catálogo con más de 25 juegos de alta calidad.</li>
+                        <li>Ofertas y descuentos exclusivos para miembros.</li>
+                    </ul>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+                 <!-- Plan Ultimate (Destacado) -->
+                  <div class="bg-xbox-green p-8 rounded-2xl text-white flex flex-col text-center transform scale-105 shadow-2xl shadow-xbox-green/20">
+                    <h3 class="text-2xl font-bold">Game Pass <span class="bg-white text-xbox-green px-2 rounded-md">Ultimate</span></h3>
+                    <p class="text-sm text-green-200 mb-4">La experiencia definitiva</p>
+                    <ul class="text-green-100 mb-6 flex-grow space-y-2 text-left list-disc list-inside">
+                        <li class="font-bold">TODO lo de Game Pass Core.</li>
+                        <li>Cientos de juegos para Consola, PC y la Nube.</li>
+                        <li>Nuevos juegos añadidos constantemente.</li>
+                        <li>Títulos de Xbox Game Studios desde el día uno.</li>
+                        <li class="font-bold">Suscripción a EA Play incluida.</li>
+                    </ul>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white hover:bg-gray-200 text-xbox-green font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+             </div>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2025 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

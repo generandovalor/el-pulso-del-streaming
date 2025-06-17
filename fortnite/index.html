@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga de Pavos para Fortnite</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1a1a2e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.7)',
+                        'fortnite-purple': '#7B3FE8', 
+                        'fortnite-blue': '#00B5FF',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a2e;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(123, 63, 232, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 181, 255, 0.15), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+        /* Clase para el delineado del texto */
+        .text-outline-white {
+            -webkit-text-stroke: 1px white;
+            paint-order: stroke fill;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+             <i class="fa-solid fa-parachute-box text-7xl md:text-8xl text-fortnite-blue mb-4"></i>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+               Recarga tus Pavos.<br><span class="text-outline-white bg-clip-text text-transparent bg-gradient-to-r from-fortnite-blue to-fortnite-purple">Desbloquea tu Estilo.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Consigue el Pase de Batalla, tus skins favoritas y los gestos más exclusivos de forma rápida y segura.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">La Forma más Inteligente de Recargar</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-bolt-lightning text-5xl text-fortnite-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Activación Rápida</h3>
+                    <p class="text-gray-400 text-sm mt-2">Una vez confirmado tu pago, los Pavos se añaden a tu cuenta de Epic Games en minutos.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-user-shield text-5xl text-fortnite-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">100% Seguro</h3>
+                    <p class="text-gray-400 text-sm mt-2">No necesitamos tu contraseña. La recarga se hace de forma segura con el nombre de tu cuenta de Epic.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-money-bill-wave text-5xl text-fortnite-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Múltiples Medios de Pago</h3>
+                    <p class="text-gray-400 text-sm mt-2">Paga cómodamente a través de Nequi, DaviPlata, Bancolombia o efectivo. ¡Sin complicaciones!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Paquete de Pavos</h2>
+             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                 <!-- Plan 1000 -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">1,000 Pavos</h3>
+                    <p class="text-4xl font-extrabold text-fortnite-blue my-4"><i class="fa-solid fa-gem"></i></p>
+                    <p class="text-gray-400 mb-6 flex-grow">Ideal para el Pase de Batalla.</p>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+                 <!-- Plan 2800 (Destacado) -->
+                  <div class="bg-brand-glass p-6 rounded-2xl border-2 border-fortnite-purple flex flex-col text-center transform hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold">2,800 Pavos</h3>
+                    <p class="text-4xl font-extrabold text-fortnite-blue my-4"><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i></p>
+                    <p class="text-gray-400 mb-6 flex-grow">El más popular para skins y gestos.</p>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-fortnite-purple hover:bg-violet-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+                 <!-- Plan 5000 -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">5,000 Pavos</h3>
+                    <p class="text-4xl font-extrabold text-fortnite-blue my-4"><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i></p>
+                    <p class="text-gray-400 mb-6 flex-grow">Para los que quieren destacar en la isla.</p>
+                     <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+                  <!-- Plan 13500 -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">13,500 Pavos</h3>
+                    <p class="text-4xl font-extrabold text-fortnite-blue my-4"><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i></p>
+                    <p class="text-gray-400 mb-6 flex-grow">El pack definitivo para coleccionistas.</p>
+                     <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Añadir al Simulador</a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-cyan-400 mb-4">¿Juegas Fortnite y ves Netflix?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">¡Tenemos el combo perfecto para ti! Usa nuestro simulador para añadir tus suscripciones de streaming a tu recarga de Pavos y obtén ofertas increíbles.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-cyan-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ¡Armar mi Combo!
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2025 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+
