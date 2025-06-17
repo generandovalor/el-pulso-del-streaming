@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canva Pro: Diseña como un Profesional</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f0f1e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.8)',
+                        'canva-purple': '#8c4bff', 
+                        'canva-teal': '#00c4cc',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a102e; 
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(140, 75, 255, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 196, 204, 0.2), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                Diseña como un Profesional con <span class="text-canva-teal">Canva Pro</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Acceso estudiantil con todas las funciones Pro para llevar tus ideas al siguiente nivel.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Libera todo tu Potencial Creativo</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-wand-magic-sparkles text-5xl text-canva-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Todas las Funciones Pro</h3>
+                    <p class="text-gray-400 text-sm mt-2">Usa el eliminador de fondos, redimensiona diseños con un clic, crea kits de marca y mucho más.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-photo-film text-5xl text-canva-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Millones de Recursos</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a una biblioteca gigante de fotos, videos, audios y plantillas premium sin costo adicional.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-shield-halved text-5xl text-canva-purple mb-4"></i>
+                    <h3 class="text-xl font-bold">Fácil de Usar y con Garantía</h3>
+                    <p class="text-gray-400 text-sm mt-2">Crea diseños increíbles sin ser un experto. Además, cuentas con nuestro soporte y garantía.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Plan</h2>
+             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                 <!-- Plan Mensual -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Plan Mensual</h3>
+                    <p class="text-sm text-gray-400 mb-4">Ideal para proyectos cortos</p>
+                    <p class="text-5xl font-extrabold text-canva-teal my-4">$12.000</p>
+                    <ul class="text-gray-400 mb-6 flex-grow space-y-2">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Acceso por 1 mes</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Todas las funciones Pro</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Soporte y Garantía</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20Mensual%20de%20Canva%20Pro." target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan Anual (Destacado) -->
+                  <div class="bg-canva-teal p-8 rounded-2xl text-brand-dark flex flex-col text-center transform scale-105 shadow-2xl shadow-canva-teal/20 relative">
+                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-lg">Oferta Especial</div>
+                    <h3 class="text-2xl font-bold">Plan Anual</h3>
+                    <p class="text-sm text-teal-800 mb-4">El mejor valor a largo plazo</p>
+                    <p class="text-5xl font-extrabold my-4">$69.000</p>
+                     <ul class="text-teal-900 mb-6 flex-grow space-y-2">
+                        <li><i class="fa-solid fa-check mr-2"></i>Acceso por 12 meses</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Todas las funciones Pro</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Soporte y Garantía</li>
+                        <li class="font-bold text-lg mt-4 pt-4 border-t border-black/10"><i class="fa-solid fa-gift text-red-600 mr-2 animate-pulse"></i>¡1 Cuenta IPTV 4 Pantallas de REGALO!</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20Anual%20de%20Canva%20Pro%20con%20el%20regalo%20de%20IPTV." target="_blank" class="w-full bg-brand-dark hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-colors">¡La Quiero!</a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-blue-400 mb-4">¿Buscas también entretenimiento?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Usa nuestro simulador para añadir Netflix, Disney+ y tus otras apps favoritas a tu plan y crea un combo de productividad y diversión.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Crear mi Combo Personalizado
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

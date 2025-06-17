@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música Premium: Spotify, YouTube, Tidal y Deezer</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#101010',
+                        'brand-glass': 'rgba(25, 25, 25, 0.7)',
+                        'spotify-green': '#1DB954',
+                        'youtube-red': '#FF0000',
+                        'tidal-cyan': '#00FFFF',
+                        'deezer-pink': '#EF5466',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #101010;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(29, 185, 84, 0.1), transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(239, 84, 102, 0.1), transparent 50%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-spotify-green to-tidal-cyan">Tu Música,</span><br> sin Anuncios y sin Límites.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Disfruta de tus artistas favoritos, crea playlists y descarga canciones para escuchar donde quieras.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">¿Por qué Elegir Premium?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-volume-xmark text-5xl text-spotify-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Cero Anuncios</h3>
+                    <p class="text-gray-400 text-sm mt-2">Escucha tu música sin interrupciones publicitarias que arruinen el momento.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-download text-5xl text-spotify-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Modo Offline</h3>
+                    <p class="text-gray-400 text-sm mt-2">Descarga tus canciones y podcasts favoritos para escucharlos sin gastar tus datos.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-forward-step text-5xl text-spotify-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Saltos Ilimitados</h3>
+                    <p class="text-gray-400 text-sm mt-2">Pasa las canciones que no te gustan cuantas veces quieras. Tú tienes el control total.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Plataforma de Música Ideal</h2>
+             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                 <!-- Plan Spotify -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <i class="fa-brands fa-spotify text-5xl text-spotify-green mb-3"></i>
+                    <h3 class="text-2xl font-bold">Spotify Premium</h3>
+                    <p class="text-sm text-gray-400 mb-4">El Rey de las Playlists</p>
+                    <p class="text-4xl font-extrabold text-white my-4">$16.900</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Perfecto para descubrir música nueva y disfrutar de un catálogo inmenso.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20una%20cuenta%20de%20Spotify%20Premium." target="_blank" class="w-full mt-auto bg-spotify-green hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan YouTube Music -->
+                  <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <i class="fa-brands fa-youtube text-5xl text-youtube-red mb-3"></i>
+                    <h3 class="text-2xl font-bold">YouTube Premium</h3>
+                    <p class="text-sm text-gray-400 mb-4">Música y Videos, sin Límites</p>
+                    <p class="text-4xl font-extrabold text-white my-4">$17.900</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Disfruta de YouTube sin anuncios y accede a todo el catálogo de YouTube Music.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20una%20cuenta%20de%20YouTube%20Premium." target="_blank" class="w-full mt-auto bg-youtube-red hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan Tidal -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <i class="fa-solid fa-water text-5xl text-tidal-cyan mb-3"></i>
+                    <h3 class="text-2xl font-bold">Tidal Música</h3>
+                    <p class="text-sm text-gray-400 mb-4">Calidad de Sonido Superior (HiFi)</p>
+                    <p class="text-4xl font-extrabold text-white my-4">$11.900</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Para los audiófilos que buscan la máxima fidelidad de sonido en cada canción.</p>
+                     <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20una%20cuenta%20de%20Tidal%20M%C3%BAsica." target="_blank" class="w-full mt-auto bg-tidal-cyan hover:bg-cyan-600 text-brand-dark font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                  <!-- Plan Deezer -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <i class="fa-solid fa-compact-disc text-5xl text-deezer-pink mb-3"></i>
+                    <h3 class="text-2xl font-bold">Deezer Premium</h3>
+                    <p class="text-sm text-gray-400 mb-4">Tu Banda Sonora Personal</p>
+                    <p class="text-4xl font-extrabold text-white my-4">$14.900</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Con su famosa función "Flow", que crea una mezcla infinita basada en tus gustos.</p>
+                     <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20una%20cuenta%20de%20Deezer%20Premium." target="_blank" class="w-full mt-auto bg-deezer-pink hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+             </div>
+        </section>
+
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-purple-400 mb-4">¿Por qué elegir solo una?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Usa nuestro simulador para combinar tu app de música favorita con Netflix, Disney+ y más. ¡Crea el combo definitivo de entretenimiento!</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-purple-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Crear mi Combo Personalizado
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

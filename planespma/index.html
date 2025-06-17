@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes Multicuentas de IA (PMA) con AdsPower</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#111827',
+                        'brand-glass': 'rgba(31, 41, 55, 0.7)',
+                        'pma-blue': '#2563EB', 
+                        'pma-indigo': '#4F46E5',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.15), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(79, 70, 229, 0.1), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-6xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-amber-500">Planes Multicuenta (PMA):</span><br> Tu Centro de Comando de IA.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Accede a todas las herramientas de inteligencia artificial que necesitas desde un solo lugar, con máxima seguridad y un ahorro increíble.</p>
+        </header>
+
+        <!-- ¿Qué son los PMA? -->
+        <section class="mb-12 bg-brand-glass backdrop-blur-md p-8 rounded-2xl border border-white/10">
+            <h2 class="text-3xl font-bold text-center text-white mb-6">¿Qué son los Planes Multicuentas AdsPower (PMA)?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <i class="fa-solid fa-box-open text-5xl text-pma-blue mb-3"></i>
+                    <h3 class="text-xl font-bold">Todo en Uno</h3>
+                    <p class="text-gray-400 mt-2">Accede a múltiples IAs sin cambiar de cuenta, todo gestionado desde un panel de control simplificado en tu PC.</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-shield-halved text-5xl text-pma-blue mb-3"></i>
+                    <h3 class="text-xl font-bold">Máxima Seguridad</h3>
+                    <p class="text-gray-400 mt-2">Usamos el navegador antidetectable AdsPower para crear perfiles únicos, minimizando el riesgo de bloqueos.</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-sack-dollar text-5xl text-pma-blue mb-3"></i>
+                    <h3 class="text-xl font-bold">Ahorro Increíble</h3>
+                    <p class="text-gray-400 mt-2">Nuestros paquetes tienen precios que destrozan las tarifas oficiales de cada herramienta por separado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section>
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Arsenal de IA</h2>
+             <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+
+                 <!-- Plan 1: Power Chat -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col">
+                    <div class="text-center mb-4">
+                        <i class="fa-solid fa-comments text-4xl text-pma-blue"></i>
+                        <h3 class="text-2xl font-bold mt-2">Plan 1 – Power Chat AI</h3>
+                    </div>
+                    <div class="my-4 flex-grow text-sm space-y-3">
+                        <p><strong><i class="fa-solid fa-check text-pma-blue mr-2"></i>ChatGPT Plus:</strong> Para conversación y respuestas rápidas.</p>
+                        <p><strong><i class="fa-solid fa-check text-pma-blue mr-2"></i>Grok:</strong> Conexión a X (Twitter) y humor sin filtros.</p>
+                        <p><strong><i class="fa-solid fa-check text-pma-blue mr-2"></i>Chat PDF:</strong> Para resumir y preguntar a tus documentos.</p>
+                        <p><strong><i class="fa-solid fa-check text-pma-blue mr-2"></i>Qwen:</strong> Un potente modelo de chat alternativo.</p>
+                    </div>
+                    <p class="text-xs text-center text-gray-500 mb-4">Precio oficial estimado: $170.000/mes</p>
+                    <div class="bg-white/5 p-4 rounded-lg text-center mb-4">
+                        <p class="font-bold">1 Mes por <span class="text-2xl text-white">$85.000</span></p>
+                        <p class="font-bold text-green-400">¡Ahorras $85.000!</p>
+                        <div class="mt-2 bg-green-900/50 border border-green-500 rounded-lg p-2 text-center text-xs">
+                            <p class="text-green-300"><i class="fa-solid fa-gift mr-2"></i>¡GRATIS! 1 cuenta IPTV 4 pantallas (Valor: $25.000)</p>
+                        </div>
+                    </div>
+                     <div class="bg-white/5 p-4 rounded-lg text-center">
+                        <p class="font-bold">3 Meses por <span class="text-2xl text-white">$140.000</span></p>
+                    </div>
+                    <p class="text-xs text-center text-gray-400 mt-4">+ Dispositivo adicional: $39.000/mes</p>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="block text-center w-full mt-6 bg-pma-blue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">Ver en el Simulador</a>
+                 </div>
+
+                 <!-- Plan 3: Arsenal Premium (Destacado) -->
+                 <div class="bg-gradient-to-br from-pma-blue to-pma-indigo text-white p-8 rounded-2xl border-2 border-pma-indigo flex flex-col transform scale-105 shadow-2xl shadow-pma-indigo/30">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 bg-pma-indigo px-4 py-1 rounded-full text-sm font-bold uppercase">Más Popular</div>
+                    <div class="text-center mb-4">
+                        <i class="fa-solid fa-star text-4xl text-yellow-300"></i>
+                        <h3 class="text-2xl font-bold mt-2">Plan 3 – Arsenal Premium</h3>
+                    </div>
+                    <div class="my-4 flex-grow text-sm space-y-3">
+                        <p><strong><i class="fa-solid fa-check text-yellow-300 mr-2"></i>TODO lo del Plan 2</strong></p>
+                        <p><strong><i class="fa-solid fa-plus text-yellow-300 mr-2"></i>Monica IA:</strong> Asistente todo en uno (leer, escribir, crear).</p>
+                        <p><strong><i class="fa-solid fa-plus text-yellow-300 mr-2"></i>Claude Pro:</strong> Para análisis profundo de documentos largos.</p>
+                        <p><strong><i class="fa-solid fa-plus text-yellow-300 mr-2"></i>CapCut Pro:</strong> Para edición de video profesional.</p>
+                        <p><strong><i class="fa-solid fa-plus text-yellow-300 mr-2"></i>Sider:</strong> Tu asistente IA en la barra lateral.</p>
+                        <p><strong><i class="fa-solid fa-plus text-yellow-300 mr-2"></i>Humanizador IA:</strong> Para que tus textos suenen 100% humanos.</p>
+                    </div>
+                    <p class="text-xs text-center text-blue-200 mb-4">Precio oficial estimado: $912.000/mes</p>
+                    <div class="bg-white/20 p-4 rounded-lg text-center mb-4">
+                        <p class="font-bold">1 Mes por <span class="text-2xl">$125.000</span></p>
+                         <p class="font-bold text-yellow-300">¡Ahorras más de $787.000!</p>
+                         <div class="mt-2 bg-green-900/50 border border-green-400 rounded-lg p-2 text-center text-xs">
+                            <p class="text-green-300"><i class="fa-solid fa-gift mr-2"></i>¡GRATIS! 1 cuenta IPTV 4 pantallas (Valor: $25.000)</p>
+                        </div>
+                    </div>
+                     <div class="bg-white/20 p-4 rounded-lg text-center">
+                        <p class="font-bold">3 Meses por <span class="text-2xl">$230.000</span></p>
+                    </div>
+                    <p class="text-xs text-center text-blue-200 mt-4">+ Dispositivo adicional: $49.000/mes</p>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="block text-center w-full mt-6 bg-white hover:bg-gray-200 text-pma-indigo font-bold py-3 px-6 rounded-lg transition-colors">Ver en el Simulador</a>
+                 </div>
+
+                 <!-- Plan 2: Suite Creador -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col">
+                     <div class="text-center mb-4">
+                        <i class="fa-solid fa-palette text-4xl text-pma-blue"></i>
+                        <h3 class="text-2xl font-bold mt-2">Plan 2 – Suite Creador IA</h3>
+                    </div>
+                    <p class="text-sm text-center text-gray-400 mb-4">(+20 Herramientas de IA)</p>
+                    <div class="my-4 flex-grow text-sm space-y-3">
+                         <p><strong><i class="fa-solid fa-check text-pma-blue mr-2"></i>Todo lo del Plan 1</strong></p>
+                         <p><strong><i class="fa-solid fa-plus text-pma-blue mr-2"></i>Canva Pro:</strong> Para diseño gráfico profesional.</p>
+                         <p><strong><i class="fa-solid fa-plus text-pma-blue mr-2"></i>Quillbot Premium:</strong> Para parafrasear y citar.</p>
+                         <p><strong><i class="fa-solid fa-plus text-pma-blue mr-2"></i>Perplexity Pro:</strong> Para investigación con fuentes.</p>
+                         <p><strong><i class="fa-solid fa-plus text-pma-blue mr-2"></i>Aithor, Everand</strong> y muchas más...</p>
+                    </div>
+                     <p class="text-xs text-center text-gray-500 mb-4">Precio oficial estimado: $444.000/mes</p>
+                    <div class="bg-white/5 p-4 rounded-lg text-center mb-4">
+                        <p class="font-bold">1 Mes por <span class="text-2xl text-white">$115.000</span></p>
+                         <p class="font-bold text-green-400">¡Ahorras $329.000!</p>
+                         <div class="mt-2 bg-green-900/50 border border-green-500 rounded-lg p-2 text-center text-xs">
+                            <p class="text-green-300"><i class="fa-solid fa-gift mr-2"></i>¡GRATIS! 1 cuenta IPTV 4 pantallas (Valor: $25.000)</p>
+                        </div>
+                    </div>
+                     <div class="bg-white/5 p-4 rounded-lg text-center">
+                        <p class="font-bold">3 Meses por <span class="text-2xl text-white">$180.000</span></p>
+                    </div>
+                    <p class="text-xs text-center text-gray-400 mt-4">+ Dispositivo adicional: $44.000/mes</p>
+                    <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="block text-center w-full mt-6 bg-pma-blue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">Ver en el Simulador</a>
+                 </div>
+             </div>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

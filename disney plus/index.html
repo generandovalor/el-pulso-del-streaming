@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Disney+ Premium 4K - Star+ y ESPN Incluido</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f0f1e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.8)',
+                        'brand-primary': '#00aaff',
+                        'disney-blue': '#113ccf', // Color corporativo de Disney+
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #01000f; /* Un fondo aún más oscuro para el tema Disney */
+            background-image: 
+                radial-gradient(circle at 15% 80%, rgba(17, 60, 207, 0.3), transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(22, 22, 44, 0.3), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-4xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="text-disney-blue">Disney+ Premium:</span><br> Star+ y ESPN Incluidos
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400">Tu perfil personal con calidad 4K, los mejores eventos deportivos y todos los estrenos.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">¿Qué Obtienes con tu Perfil Premium?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-wand-sparkles text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">Disney+ y Pixar</h3>
+                    <p class="text-gray-400 text-sm mt-2">Todos los clásicos, estrenos y series originales que amas, siempre con la máxima calidad.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-star text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">Star+ Incluido</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a series aclamadas como "Los Simpson", películas de éxito y producciones originales de Star.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-futbol text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">ESPN en Vivo</h3>
+                    <p class="text-gray-400 text-sm mt-2">No te pierdas ni un partido. Disfruta de los mejores eventos deportivos en vivo y en directo.</p>
+                </div>
+                <!-- Beneficio 4 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-shield-halved text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">Garantía Total</h3>
+                    <p class="text-gray-400 text-sm mt-2">Te ofrecemos soporte y garantía durante todo el mes de tu servicio. ¡Tu entretenimiento está asegurado!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Cómo Funciona -->
+        <section class="mb-12 bg-brand-glass backdrop-blur-md p-8 rounded-2xl border border-white/10">
+             <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-brand-primary mb-4">¿Por qué un Precio tan Accesible?</h2>
+                    <p class="text-gray-300">Es simple: adquirimos una cuenta <span class="font-bold">Disney+ Premium</span>, que permite múltiples perfiles y pantallas. Te asignamos un perfil exclusivo para ti dentro de la cuenta.</p>
+                    <p class="text-gray-300 mt-4">Pagas solo por tu porción, pero disfrutas de TODOS los beneficios del plan más completo, incluyendo calidad 4K y deportes en vivo. <strong class="text-white">¡Es la forma más inteligente de tenerlo todo!</strong></p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white/5 p-8 rounded-lg">
+                        <p class="text-gray-400 text-lg">Precio por tu Perfil Premium</p>
+                        <p class="text-5xl font-extrabold text-white my-2">$12.000</p>
+                        <p class="text-gray-400">/ mes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to Action -->
+        <section class="text-center bg-brand-glass p-8 rounded-2xl border-2 border-disney-blue">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Te imaginas esto + Netflix + Max?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">¡No te limites! Usa nuestro simulador para armar un combo con todos tus servicios favoritos, ahorra mucho más y llévate premios increíbles.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-disney-blue text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-blue-800 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ¡Armar mi Combo Personalizado!
+            </a>
+        </section>
+
+        <footer class="text-center mt-8">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

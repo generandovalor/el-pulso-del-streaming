@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Advanced: La IA de Siguiente Nivel</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f0f1e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.8)',
+                        'gemini-blue': '#4285F4',
+                        'gemini-purple': '#9333ea',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f1e;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(66, 133, 244, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(147, 51, 234, 0.15), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                Lleva tus Ideas al Límite con<br> <span class="bg-clip-text text-transparent bg-gradient-to-r from-gemini-blue to-gemini-purple">Gemini Advanced</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">La inteligencia artificial de Google, directamente conectada al mundo real para potenciar tu creatividad y productividad.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">¿Por qué Gemini es Superior?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-brands fa-google text-5xl text-gemini-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Conectado a Google</h3>
+                    <p class="text-gray-400 text-sm mt-2">Obtén respuestas basadas en información en tiempo real de la Búsqueda de Google, no en datos desactualizados.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-cubes text-5xl text-gemini-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Verdaderamente Multimodal</h3>
+                    <p class="text-gray-400 text-sm mt-2">Analiza no solo texto, sino también imágenes, documentos y bases de datos para darte respuestas más completas.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-gears text-5xl text-gemini-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Integración Perfecta</h3>
+                    <p class="text-gray-400 text-sm mt-2">Funciona a la perfección con el ecosistema de Google como Docs, Sheets y más, llevando tu productividad al límite.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Plan de Acceso</h2>
+             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                 <!-- Plan Mensual -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Plan Mensual</h3>
+                    <p class="text-sm text-gray-400 mb-4">(Acceso por 30 días)</p>
+                    <p class="text-5xl font-extrabold text-gemini-blue my-4">$38.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Precio oficial aproximado: $88.000<br><span class="font-bold text-white">¡Ahorras más de $50.000!</span></p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20Mensual%20de%20Gemini%20Advanced." target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar Plan Mensual</a>
+                 </div>
+                 <!-- Plan Trimestral (Destacado) -->
+                  <div class="bg-gradient-to-br from-gemini-blue to-gemini-purple p-8 rounded-2xl text-white flex flex-col text-center transform scale-105 shadow-2xl shadow-gemini-blue/20 relative">
+                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-lg">Oferta Superior</div>
+                    <h3 class="text-2xl font-bold">Plan 3 Meses</h3>
+                    <p class="text-sm text-blue-200 mb-4">(Acceso por 90 días)</p>
+                    <p class="text-5xl font-extrabold my-4">$103.000</p>
+                     <div class="my-4 p-4 bg-black/20 rounded-lg text-white flex-grow">
+                        <p class="font-bold text-lg">¡Y ELIGE UN REGALO PREMIUM!</p>
+                        <p class="mt-2"><i class="fa-solid fa-gift text-red-500 mr-2 animate-pulse"></i><strong>1 Cuenta Plex 2 Pantallas</strong><br><span class="text-sm">(Series y Películas)</span></p>
+                        <p class="font-bold my-1">O</p>
+                        <p><i class="fa-solid fa-gift text-red-500 mr-2 animate-pulse"></i><strong>1 Cuenta IPTV 4 Pantallas</strong><br><span class="text-sm">(Canales, Series y Películas)</span></p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20de%203%20meses%20de%20Gemini%20Advanced%20con%20regalo." target="_blank" class="w-full bg-white text-brand-dark font-bold py-3 px-6 rounded-lg transition-colors hover:bg-gray-200">¡Quiero la Mejor Oferta!</a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-cyan-400 mb-4">Potencia tu Productividad al Máximo</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Combina Gemini Advanced con Canva Pro y tus apps de streaming favoritas. Usa nuestro simulador para crear tu paquete definitivo.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-cyan-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Crear mi Combo Personalizado
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

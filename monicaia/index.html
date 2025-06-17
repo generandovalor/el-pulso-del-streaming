@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monica IA Unlimited: Tu Asistente Todo en Uno</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#111827',
+                        'brand-glass': 'rgba(31, 41, 55, 0.7)',
+                        'monica-indigo': '#4F46E5', 
+                        'monica-violet': '#7C3AED',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(79, 70, 229, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(124, 58, 237, 0.1), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-monica-indigo to-monica-violet">Monica IA:</span><br> Tu Copiloto para Hacerlo Todo.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Chatea, busca, lee, escribe y crea imágenes con el asistente de IA más completo y versátil.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Un Asistente para Cada Tarea</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-comments text-5xl text-monica-indigo mb-4"></i>
+                    <h3 class="text-xl font-bold">Chatea y Crea</h3>
+                    <p class="text-gray-400 text-sm mt-2">Conversa, hazle preguntas complejas y genera ideas creativas al instante.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-book-open-reader text-5xl text-monica-indigo mb-4"></i>
+                    <h3 class="text-xl font-bold">Experta en Lectura</h3>
+                    <p class="text-gray-400 text-sm mt-2">Resume videos de YouTube, artículos y PDFs en segundos. Extrae la información clave sin esfuerzo.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-pen-to-square text-5xl text-monica-indigo mb-4"></i>
+                    <h3 class="text-xl font-bold">Asistente de Escritura</h3>
+                    <p class="text-gray-400 text-sm mt-2">Mejora tus textos, responde correos y crea borradores profesionales con la ayuda de la IA.</p>
+                </div>
+                 <!-- Beneficio 4 -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-image text-5xl text-monica-indigo mb-4"></i>
+                    <h3 class="text-xl font-bold">Generador de Imágenes</h3>
+                    <p class="text-gray-400 text-sm mt-2">Transforma tus ideas en arte visual. Crea imágenes impactantes a partir de texto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Plan Ilimitado</h2>
+             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                 <!-- Plan Mensual -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Plan Mensual</h3>
+                    <p class="text-sm text-gray-400 mb-4">(Acceso por 30 días)</p>
+                    <p class="text-5xl font-extrabold text-monica-violet my-4">$68.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Precio oficial: $99.000<br><span class="font-bold text-white">¡Ahorras $31.000!</span></p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20Mensual%20de%20Monica%20IA." target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar Plan Mensual</a>
+                 </div>
+                 <!-- Plan Trimestral (Destacado) -->
+                  <div class="bg-gradient-to-br from-monica-indigo to-monica-violet p-8 rounded-2xl text-white flex flex-col text-center transform scale-105 shadow-2xl shadow-monica-violet/20 relative">
+                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-lg">Oferta Más Completa</div>
+                    <h3 class="text-2xl font-bold">Plan 3 Meses</h3>
+                    <p class="text-sm text-indigo-200 mb-4">(Acceso por 90 días)</p>
+                    <p class="text-5xl font-extrabold my-4">$151.000</p>
+                     <div class="my-4 p-4 bg-black/20 rounded-lg text-white flex-grow">
+                        <p class="font-bold text-lg">¡Y LLÉVATE UN REGALO INCREÍBLE!</p>
+                        <p class="mt-2"><i class="fa-solid fa-gift text-red-500 mr-2 animate-pulse"></i><strong>1 Cuenta IPTV 4 Pantallas</strong><br><span class="text-sm">(Canales, Series y Películas)</span></p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20de%203%20meses%20de%20Monica%20IA%20con%20el%20regalo%20de%20IPTV." target="_blank" class="w-full bg-white text-monica-indigo font-bold py-3 px-6 rounded-lg transition-colors hover:bg-gray-200">¡Quiero esta Oferta!</a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-cyan-400 mb-4">Combina IA con Entretenimiento</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Usa nuestro simulador para añadir Monica IA a tu combo de streaming y crea un paquete de productividad y diversión a tu medida.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-cyan-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Crear mi Combo Personalizado
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

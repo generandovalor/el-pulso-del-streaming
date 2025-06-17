@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DirecTV Go: TV en Vivo, Deportes y Series</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f0f1e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.8)',
+                        'brand-primary': '#00aaff',
+                        'directv-blue': '#0074E4', // Color corporativo de DirecTV
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0c151d; 
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 116, 228, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(22, 22, 44, 0.3), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="text-directv-blue">DirecTV Go:</span><br>La TV en Vivo que ya Conoces, a tu Manera.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Disfruta de tus canales favoritos, los mejores deportes y miles de películas y series donde y cuando quieras.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Una Experiencia de Televisión Superior</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-tv text-5xl text-directv-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Canales en Vivo</h3>
+                    <p class="text-gray-400 text-sm mt-2">Más de 40 canales nacionales e internacionales, con noticias, entretenimiento, infantiles y mucho más.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-trophy text-5xl text-directv-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Deportes Exclusivos</h3>
+                    <p class="text-gray-400 text-sm mt-2">Acceso a canales DSPORTS para no perderte ningún evento. ¡Y la opción de añadir todo el fútbol colombiano con Win+!</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-film text-5xl text-directv-blue mb-4"></i>
+                    <h3 class="text-xl font-bold">Películas y Series</h3>
+                    <p class="text-gray-400 text-sm mt-2">Disfruta de miles de títulos On-Demand para ver a tu ritmo, cuando tú quieras.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Plan</h2>
+             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                 <!-- Plan Básico -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Plan Básico</h3>
+                    <p class="text-sm text-gray-400 mb-4">(2 Pantallas simultáneas)</p>
+                    <p class="text-5xl font-extrabold text-directv-blue my-4">$24.000</p>
+                    <ul class="text-gray-400 mb-6 flex-grow space-y-2">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Más de 40 canales de TV</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Miles de películas y series</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Acceso a canales DSPORTS</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20B%C3%A1sico%20de%20DirecTV%20Go." target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan Win+ (Destacado) -->
+                  <div class="bg-directv-blue p-8 rounded-2xl text-white flex flex-col text-center transform scale-105 shadow-2xl shadow-directv-blue/20">
+                    <h3 class="text-2xl font-bold">Plan Básico + Win+</h3>
+                    <p class="text-sm text-blue-200 mb-4">(1 Pantalla)</p>
+                    <p class="text-5xl font-extrabold my-4">$37.000</p>
+                     <ul class="text-blue-100 mb-6 flex-grow space-y-2">
+                        <li><i class="fa-solid fa-check mr-2"></i>Todo lo del Plan Básico</li>
+                        <li class="font-bold"><i class="fa-solid fa-star text-yellow-300 mr-2"></i>Fútbol colombiano en Win+</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Acceso a canales DSPORTS</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20Plan%20B%C3%A1sico%20m%C3%A1s%20Win%2B%20de%20DirecTV%20Go." target="_blank" class="w-full bg-white hover:bg-gray-200 text-directv-blue font-bold py-3 px-6 rounded-lg transition-colors">¡Lo Quiero!</a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-4">¿Quieres la Experiencia Completa?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Usa nuestro simulador para añadir Netflix, Max y tus otras apps favoritas a tu plan de DirecTV Go y crea un combo de entretenimiento sin igual.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-yellow-500 text-brand-dark font-bold py-4 px-10 rounded-full text-xl hover:bg-yellow-400 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ¡Crear mi Combo Personalizado!
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Netflix Premium 4K - Acceso Inmediato</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f0f1e',
+                        'brand-glass': 'rgba(30, 30, 50, 0.8)',
+                        'brand-primary': '#00aaff',
+                        'netflix-red': '#E50914',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f1e;
+            background-image: 
+                radial-gradient(circle at 15% 80%, rgba(229, 9, 20, 0.2), transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(22, 22, 44, 0.3), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-4xl">
+            
+        <header class="text-center mb-12">
+            <svg class="mx-auto h-20 md:h-28 mb-4" viewBox="0 0 115 310" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M115 309.4V0H75.5V136.2L39.5 0H0V309.4H39.5V173.2L75.5 309.4H115Z" fill="#E50914"/></svg>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white text-shadow mb-4">
+                Acceso a Netflix Premium a tu Alcance
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400">Consigue tu perfil personal Ultra HD 4K y disfruta sin límites y sin complicaciones.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">¿Qué Obtienes con tu Perfil?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-photo-film text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">Calidad Ultra HD 4K</h3>
+                    <p class="text-gray-400 text-sm mt-2">Disfruta de tus series y películas favoritas con la máxima resolución y calidad de imagen.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-user-lock text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">Tu Propio Espacio</h3>
+                    <p class="text-gray-400 text-sm mt-2">Un perfil solo para ti, con tu propio historial, recomendaciones y lista de seguimiento. ¡Totalmente privado!</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-rocket text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">Acceso Inmediato</h3>
+                    <p class="text-gray-400 text-sm mt-2">Recibe tus credenciales y empieza a disfrutar del contenido en minutos. Sin esperas, sin complicaciones.</p>
+                </div>
+                <!-- Beneficio 4 -->
+                <div class="bg-brand-glass p-6 rounded-2xl text-center border border-white/10">
+                    <i class="fa-solid fa-shield-halved text-4xl text-brand-primary mb-3"></i>
+                    <h3 class="text-xl font-bold">Garantía Total</h3>
+                    <p class="text-gray-400 text-sm mt-2">Te ofrecemos soporte y garantía durante todo el mes de tu servicio. ¡Tu entretenimiento está asegurado!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Cómo Funciona -->
+        <section class="mb-12 bg-brand-glass backdrop-blur-md p-8 rounded-2xl border border-white/10">
+             <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-brand-primary mb-4">¿Cómo es Posible este Precio?</h2>
+                    <p class="text-gray-300">Muy simple. Adquirimos una cuenta <span class="font-bold">Netflix Premium</span>, que permite ver en 4 pantallas a la vez. Compartimos el acceso entre un grupo reducido de usuarios, y a ti te asignamos un perfil exclusivo.</p>
+                    <p class="text-gray-300 mt-4">Pagas solo por tu parte, obteniendo todos los beneficios de una cuenta Premium por una fracción de su costo. <strong class="text-white">¡Es la forma más inteligente de disfrutar Netflix!</strong></p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white/5 p-8 rounded-lg">
+                        <p class="text-gray-400 text-lg">Precio por tu Perfil</p>
+                        <p class="text-5xl font-extrabold text-white my-2">$14.000</p>
+                        <p class="text-gray-400">/ mes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to Action -->
+        <section class="text-center bg-brand-glass p-8 rounded-2xl border-2 border-netflix-red">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Por qué conformarte con solo Netflix?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">¡Puedes armar un combo con Disney+, Max, Spotify y todos tus servicios favoritos para ahorrar aún más y llevarte premios increíbles!</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-netflix-red text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-red-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ¡Quiero Crear mi Combo!
+            </a>
+        </section>
+
+        <footer class="text-center mt-8">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

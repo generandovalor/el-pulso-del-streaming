@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios VPN: Navegación Segura y sin Límites</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a',
+                        'brand-glass': 'rgba(30, 41, 59, 0.7)',
+                        'vpn-cyan': '#06B6D4', 
+                        'vpn-blue': '#3B82F6',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.15), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.1), transparent 40%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-vpn-cyan to-vpn-blue">Navega con Libertad,</span><br> Seguridad y sin Fronteras.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Protege tu conexión, accede a contenido de todo el mundo y mantén tu privacidad online con nuestros servicios de VPN.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">¿Por qué Necesitas una VPN?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-lock text-5xl text-vpn-cyan mb-4"></i>
+                    <h3 class="text-xl font-bold">Seguridad Total</h3>
+                    <p class="text-gray-400 text-sm mt-2">Encripta tu conexión a internet, protegiendo tus datos de hackers en redes Wi-Fi públicas.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-globe text-5xl text-vpn-cyan mb-4"></i>
+                    <h3 class="text-xl font-bold">Acceso Global</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a catálogos de streaming de otros países y a sitios web bloqueados en tu región.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-user-secret text-5xl text-vpn-cyan mb-4"></i>
+                    <h3 class="text-xl font-bold">Privacidad Real</h3>
+                    <p class="text-gray-400 text-sm mt-2">Oculta tu dirección IP y tu actividad en línea para que nadie pueda rastrear lo que haces.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Nuestros Servicios VPN</h2>
+             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                 <!-- Plan FAST VPN -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">FAST VPN</h3>
+                    <p class="text-sm text-gray-400 mb-4">Ideal para streaming y gaming</p>
+                    <p class="text-4xl font-extrabold text-vpn-cyan my-4">$23.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Conexiones de alta velocidad para una experiencia fluida y sin lag.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20servicio%20de%20FAST%20VPN." target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan HOLA VPN -->
+                  <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">HOLA VPN</h3>
+                    <p class="text-sm text-gray-400 mb-4">Perfecta para desbloquear contenido</p>
+                    <p class="text-4xl font-extrabold text-vpn-cyan my-4">$23.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Accede a una red mundial para ver catálogos de cualquier país.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20servicio%20de%20HOLA%20VPN." target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan SURFSHARK VPN -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">SURFSHARK VPN</h3>
+                    <p class="text-sm text-gray-400 mb-4">Protección en todos tus dispositivos</p>
+                    <p class="text-4xl font-extrabold text-vpn-cyan my-4">$23.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Conocida por sus múltiples funciones de seguridad adicionales y uso en dispositivos ilimitados.</p>
+                     <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20servicio%20de%20SURFSHARK%20VPN." target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                  <!-- Plan STEGANOS VPN -->
+                 <div class="bg-brand-glass p-6 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">STEGANOS VPN</h3>
+                    <p class="text-sm text-gray-400 mb-4">Máxima privacidad y confianza</p>
+                    <p class="text-4xl font-extrabold text-vpn-cyan my-4">$24.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Seguridad alemana de alta reputación para una privacidad online superior.</p>
+                     <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20servicio%20de%20STEGANOS%20VPN." target="_blank" class="w-full mt-auto bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+             </div>
+        </section>
+
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-purple-400 mb-4">Combina tu VPN con Entretenimiento</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Usa nuestro simulador para añadir tu VPN a un combo con Netflix, Disney+ y más. ¡Protección y diversión en un solo paquete!</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-purple-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Crear mi Combo Personalizado
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

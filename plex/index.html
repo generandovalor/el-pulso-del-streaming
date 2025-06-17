@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plex: Todo el Streaming en un Solo Lugar</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#101010',
+                        'brand-glass': 'rgba(20, 20, 20, 0.7)',
+                        'brand-primary': '#00aaff',
+                        'plex-gold': '#E5A00D', 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #101010;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(229, 160, 13, 0.15), transparent 50%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="text-plex-gold">Plex:</span> Todo el Streaming en un Solo Lugar.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Imagina tener los estrenos de cine y las series de todas las plataformas en una sola aplicación. Deja de pagar por múltiples servicios.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">La Solución Definitiva de Entretenimiento</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-layer-group text-5xl text-plex-gold mb-4"></i>
+                    <h3 class="text-xl font-bold">Todo Incluido</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a estrenos de cine y series de Netflix, Disney+, Max, Prime Video y más, todo desde Plex.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-piggy-bank text-5xl text-plex-gold mb-4"></i>
+                    <h3 class="text-xl font-bold">Ahorro Considerable</h3>
+                    <p class="text-gray-400 text-sm mt-2">Un solo pago mensual reemplaza múltiples suscripciones. El ahorro para tu bolsillo es enorme.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-calendar-check text-5xl text-plex-gold mb-4"></i>
+                    <h3 class="text-xl font-bold">Planes a tu Medida</h3>
+                    <p class="text-gray-400 text-sm mt-2">Ofrecemos desde accesos individuales hasta planes de 1 año para tu total tranquilidad y disfrute.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Plan Ideal</h2>
+             <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                 <!-- Plan 1 Pantalla -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Plex 1 Pantalla</h3>
+                    <p class="text-sm text-gray-400 mb-4">(Cuenta Compartida)</p>
+                    <p class="text-5xl font-extrabold text-plex-gold my-4">$15.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Perfecto para disfrutar de todo el contenido en un dispositivo.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20plan%20Plex%20de%201%20pantalla." target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan 2 Pantallas (Destacado) -->
+                  <div class="bg-plex-gold p-8 rounded-2xl text-brand-dark flex flex-col text-center transform scale-105 shadow-2xl shadow-plex-gold/20">
+                    <h3 class="text-2xl font-bold">Plex 2 Pantallas</h3>
+                    <p class="text-sm text-gray-800 mb-4">(Cuenta Única y Renovable)</p>
+                    <p class="text-5xl font-extrabold my-4">$20.000</p>
+                    <p class="text-gray-800 mb-6 flex-grow">Ideal para parejas o para ver en tu TV y celular al mismo tiempo.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20plan%20Plex%20de%202%20pantallas." target="_blank" class="w-full bg-brand-dark hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-colors">¡Lo Quiero!</a>
+                 </div>
+                 <!-- Plan 4 Pantallas -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">Plex 4 Pantallas</h3>
+                    <p class="text-sm text-gray-400 mb-4">(Cuenta Única y Renovable)</p>
+                    <p class="text-5xl font-extrabold text-plex-gold my-4">$25.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">La mejor opción para toda la familia. Todos disfrutan de su contenido favorito.</p>
+                     <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20plan%20Plex%20de%204%20pantallas." target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+             </div>
+        </section>
+
+
+        <!-- Call to Action Demo -->
+        <section class="text-center bg-brand-glass p-8 rounded-2xl border-2 border-plex-gold">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿No estás seguro? ¡Pruébalo GRATIS!</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Te damos un demo de 2 horas para que explores nuestro servidor y veas con tus propios ojos la increíble cantidad de contenido que te espera.</p>
+            <a href="https://api.whatsapp.com/send?text=Hola%2C%20quisiera%20solicitar%20un%20demo%20de%20Plex%20de%202%20horas." target="_blank" class="inline-block bg-plex-gold text-brand-dark font-bold py-4 px-10 rounded-full text-xl hover:bg-yellow-500 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-ticket mr-2"></i> ¡Quiero mi Demo Gratis!
+            </a>
+        </section>
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-brand-primary mb-4">¿Quieres Más que Solo Plex?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Si aún así quieres tener acceso a otras apps de streaming, usa nuestro simulador para crear un combo personalizado y descubre ofertas increíbles.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-brand-primary text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ¡Crear mi Combo Personalizado!
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

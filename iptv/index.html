@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV: Canales en Vivo, Series y Películas</title>
+    
+    <!-- Cargando Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargando Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada para Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0a0a0a',
+                        'brand-glass': 'rgba(25, 25, 25, 0.7)',
+                        'iptv-green': '#00ff7f', 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos adicionales para el fondo y la fuente -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            background-image: 
+                radial-gradient(circle at 50% 100%, rgba(0, 255, 127, 0.15), transparent 50%);
+            background-attachment: fixed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+            
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4 leading-tight">
+                <span class="text-iptv-green">IPTV:</span> La Televisión del Futuro, Hoy.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Todo el contenido en un solo lugar: Canales en vivo, deportes, estrenos de cine y las series de todas las plataformas.</p>
+        </header>
+
+        <!-- Sección de Beneficios -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Un Universo de Contenido sin Límites</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-satellite-dish text-5xl text-iptv-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Canales en Vivo</h3>
+                    <p class="text-gray-400 text-sm mt-2">Accede a canales de múltiples países, incluyendo todos los de deportes: Win+, DirecTV Sports, ESPN, MLS y más.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-film text-5xl text-iptv-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Películas y Series</h3>
+                    <p class="text-gray-400 text-sm mt-2">Disfruta de una videoteca gigante con los últimos estrenos de cine y las series más populares de todas las apps.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-brand-glass p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-star text-5xl text-iptv-green mb-4"></i>
+                    <h3 class="text-xl font-bold">Calidad y Confianza</h3>
+                    <p class="text-gray-400 text-sm mt-2">Te ofrecemos un servicio estable, con garantía durante todo el mes y soporte para lo que necesites.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Planes -->
+        <section class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-white mb-8">Elige tu Plan</h2>
+             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                 <!-- Plan 1 Pantalla -->
+                 <div class="bg-brand-glass p-8 rounded-2xl border border-white/10 flex flex-col text-center">
+                    <h3 class="text-2xl font-bold">IPTV 1 Pantalla</h3>
+                    <p class="text-sm text-gray-400 mb-4">(Cuenta Compartida)</p>
+                    <p class="text-5xl font-extrabold text-iptv-green my-4">$15.000</p>
+                    <p class="text-gray-400 mb-6 flex-grow">Perfecto para disfrutar de todo el contenido en un dispositivo.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20el%20plan%20IPTV%20de%201%20pantalla." target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition-colors">Solicitar</a>
+                 </div>
+                 <!-- Plan 4 Pantallas (Destacado con Promo) -->
+                  <div class="bg-iptv-green p-8 rounded-2xl text-brand-dark flex flex-col text-center transform scale-105 shadow-2xl shadow-iptv-green/20 relative">
+                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-lg">Promo</div>
+                    <h3 class="text-2xl font-bold">IPTV 4 Pantallas</h3>
+                    <p class="text-sm text-gray-800 mb-4">(Cuenta Única y Renovable)</p>
+                    <p class="text-5xl font-extrabold my-4">$25.000</p>
+                    
+                    <!-- Caja de la Promoción -->
+                    <div class="my-4 p-4 bg-black/10 rounded-lg">
+                        <p class="font-bold text-sm text-black uppercase">¡Además, llévate un perfil gratis!</p>
+                        <p class="text-xs text-gray-800">Escoge uno de estos servicios y disfrútalo por todo el mes:</p>
+                        <p class="text-xs text-gray-900 mt-2 font-semibold">Max Platino, Prime Video, Disney+, Vix Premium, Tidal, Crunchyroll o Paramount+.</p>
+                    </div>
+
+                    <p class="text-gray-800 mb-6 flex-grow">La mejor opción para toda la familia. Todos disfrutan de su contenido favorito en hasta 4 dispositivos a la vez.</p>
+                    <a href="https://api.whatsapp.com/send?text=Hola%2C%20estoy%20interesado%20en%20la%20promoci%C3%B3n%20del%20plan%20IPTV%20de%204%20pantallas%20%2B%201%20perfil%20de%20regalo." target="_blank" class="w-full bg-brand-dark hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-colors">¡Lo Quiero!</a>
+                 </div>
+             </div>
+        </section>
+
+
+        <!-- Call to Action Demo -->
+        <section class="text-center bg-brand-glass p-8 rounded-2xl border-2 border-iptv-green">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Quieres ver el poder de IPTV? ¡Pruébalo GRATIS!</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Te damos un demo de 2 horas sin compromiso para que navegues por todos los canales y el catálogo de películas y series.</p>
+            <a href="https://api.whatsapp.com/send?text=Hola%2C%20quisiera%20solicitar%20un%20demo%20de%20IPTV%20de%202%20horas." target="_blank" class="inline-block bg-iptv-green text-brand-dark font-bold py-4 px-10 rounded-full text-xl hover:bg-green-400 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-ticket mr-2"></i> ¡Solicitar mi Demo Gratis!
+            </a>
+        </section>
+
+        <!-- Call to Action Combo -->
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold text-blue-400 mb-4">¿Aún quieres alguna otra app?</h2>
+            <p class="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">Si además de IPTV necesitas acceso a alguna otra plataforma específica, usa nuestro simulador para crear un combo y obtener el mejor precio posible.</p>
+            <a href="https://simulador-clientes-vip.netlify.app/" target="_blank" class="inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Crear mi Combo Personalizado
+            </a>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-xs text-gray-500">&copy; 2024 Generando Valor. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+
